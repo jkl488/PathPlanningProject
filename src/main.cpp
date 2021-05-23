@@ -7,24 +7,28 @@
 #include "Eigen-3.3/Eigen/QR"
 #include "helpers.h"
 #include "json.hpp"
+#include "HighwayPlanner.hpp"
 
 // for convenience
-using nlohmann::json;
-using std::string;
-using std::vector;
+//using nlohmann::json;
+//using std::string;
+//using std::vector;
 
 int main() {
   uWS::Hub h;
 
+  //Create HighwayPlanner object;
+  HighwayPlanner highway_planner;
+
   // Load up map values for waypoint's x,y,s and d normalized normal vectors
-  vector<double> map_waypoints_x;
-  vector<double> map_waypoints_y;
-  vector<double> map_waypoints_s;
-  vector<double> map_waypoints_dx;
-  vector<double> map_waypoints_dy;
+  std::vector<double> map_waypoints_x;
+  std::vector<double> map_waypoints_y;
+  std::vector<double> map_waypoints_s;
+  std::vector<double> map_waypoints_dx;
+  std::vector<double> map_waypoints_dy;
 
   // Waypoint map to read from
-  string map_file_ = "../data/highway_map.csv";
+  std::string map_file_ = "../data/highway_map.csv";
   // The max s value before wrapping around the track back to 0
   double max_s = 6945.554;
 
@@ -50,7 +54,7 @@ int main() {
     map_waypoints_dy.push_back(d_y);
   }
 
-  h.onMessage([&map_waypoints_x,&map_waypoints_y,&map_waypoints_s,
+  h.onMessage([&highway_planner,&map_waypoints_x,&map_waypoints_y,&map_waypoints_s,
                &map_waypoints_dx,&map_waypoints_dy]
               (uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
                uWS::OpCode opCode) {
@@ -62,7 +66,7 @@ int main() {
       auto s = hasData(data);
 
       if (s != "") {
-        auto j = json::parse(s);
+        auto j = nlohmann::json::parse(s);
         
         string event = j[0].get<string>();
         
@@ -72,10 +76,11 @@ int main() {
           // Main car's localization Data
           double car_x = j[1]["x"];
           double car_y = j[1]["y"];
-          double car_s = j[1]["s"];
-          double car_d = j[1]["d"];
+          //double car_s = j[1]["s"];
+          //double car_d = j[1]["d"];
           double car_yaw = j[1]["yaw"];
-          double car_speed = j[1]["speed"];
+          //double car_speed = j[1]["speed"];
+            highway_planner.setVehicleState(j[1]["x"], j[1]["y"], j[1]["s"], j[1]["d"], j[1]["yaw"], j[1]["speed"]);
 
           // Previous path data given to the Planner
           auto previous_path_x = j[1]["previous_path_x"];
@@ -87,16 +92,43 @@ int main() {
           // Sensor Fusion Data, a list of all other cars on the same side 
           //   of the road.
           auto sensor_fusion = j[1]["sensor_fusion"];
+            std::cout << "Sensor fusion size: " << sensor_fusion.size() << '\n';
+            for(int i = 0; i < sensor_fusion.size(); ++i)
+            {
+                int object_id = sensor_fusion[i][0];
+                std::cout << "ID: " << object_id << '\n';
+                double object_pos_x = sensor_fusion[i][1];
+                std::cout << "x: " << object_pos_x << '\n';
+                double object_pos_y = sensor_fusion[i][2];
+                std::cout << "y: " << object_pos_y << '\n';
+                double object_vx = sensor_fusion[i][3];
+                std::cout << "vx: " << object_vx << '\n';
+                double object_vy = sensor_fusion[i][4];
+                std::cout << "vy: " << object_vy << '\n';
+                double object_s = sensor_fusion[i][5];
+                std::cout << "s: " << object_s << '\n';
+                double object_d = sensor_fusion[i][6];
+                std::cout << "d: " << object_d << '\n';
+                
+            }
 
-          json msgJson;
+          nlohmann::json msgJson;
 
-          vector<double> next_x_vals;
-          vector<double> next_y_vals;
+          std::vector<double> next_x_vals;
+          std::vector<double> next_y_vals;
 
           /**
            * TODO: define a path made up of (x,y) points that the car will visit
            *   sequentially every .02 seconds
            */
+            double dist_inc = 0.05;
+            for (int i = 0; i < 50; ++i) {
+              next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(car_yaw)));
+              next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(car_yaw)));
+            }
+            
+            highway_planner.step();
+
 
 
           msgJson["next_x"] = next_x_vals;

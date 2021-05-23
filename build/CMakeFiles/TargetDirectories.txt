@@ -1,0 +1,3 @@
+/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/CMakeFiles/path_planning.dir
+/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/CMakeFiles/ALL_BUILD.dir
+/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/CMakeFiles/ZERO_CHECK.dir
