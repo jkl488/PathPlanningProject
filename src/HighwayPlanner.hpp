@@ -12,6 +12,7 @@
 #include "TrajectoryPlanner.hpp"
 #include "BehaviorPlanner.hpp"
 #include "DataTypes.hpp"
+#include "helpers.h"
 
 
 class HighwayPlanner{
@@ -23,12 +24,17 @@ public:
     void step();
     //void shutdown();
     void setVehicleState(double x, double y, double s, double d, double heading, double speed);
-    void setObjectList();
+    void setObjectToIndex(int index, unsigned int id, double pos_x, double pos_y, double vx, double vy, double s, double d);
+    void clearObjectList();
+    GoalCoordianteList GetOutputPath();
     
 private:
     TrajectoryPlanner trajectory_planner_;
+    //BehaviorPlanner behavior_planner_;
     std::shared_ptr<VehicleState> vehicle_state_ = nullptr;
     std::shared_ptr<ObjectList> object_list_ = nullptr;
+    std::shared_ptr<OutputPath> output_path_ = nullptr;
+    
     
 };
 

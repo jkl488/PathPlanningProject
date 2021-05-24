@@ -189,9 +189,10 @@ dependencies: \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/QR/FullPivHouseholderQR.h \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/QR/ColPivHouseholderQR.h \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/QR/CompleteOrthogonalDecomposition.h \
-  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/helpers.h \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/json.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp \
-  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/helpers.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp
