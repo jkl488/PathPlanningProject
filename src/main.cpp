@@ -25,13 +25,13 @@ int main() {
   std::vector<double> map_waypoints_dy;
 
   // Waypoint map to read from
-  std::string map_file_ = "../data/highway_map.csv";
+  std::string map_file_ = "../../data/highway_map.csv";
   // The max s value before wrapping around the track back to 0
   double max_s = 6945.554;
 
   std::ifstream in_map_(map_file_.c_str(), std::ifstream::in);
 
-  string line;
+  std::string line;
   while (getline(in_map_, line)) {
     std::istringstream iss(line);
     double x;
@@ -50,6 +50,7 @@ int main() {
     map_waypoints_dx.push_back(d_x);
     map_waypoints_dy.push_back(d_y);
   }
+    highway_planner.setMap(map_waypoints_x, map_waypoints_y, map_waypoints_s, map_waypoints_dx, map_waypoints_dy);
 
   h.onMessage([&highway_planner,&map_waypoints_x,&map_waypoints_y,&map_waypoints_s,
                &map_waypoints_dx,&map_waypoints_dy]
@@ -65,7 +66,7 @@ int main() {
       if (s != "") {
         auto j = nlohmann::json::parse(s);
         
-        string event = j[0].get<string>();
+          std::string event = j[0].get<std::string>();
         
         if (event == "telemetry") {
           // j[1] is the data JSON object
@@ -96,14 +97,10 @@ int main() {
                 highway_planner.setObjectToIndex(i, sensor_fusion[i][0], sensor_fusion[i][1], sensor_fusion[i][2], sensor_fusion[i][3], sensor_fusion[i][4],
                                                  sensor_fusion[i][5], sensor_fusion[i][6]);
                 }
-                else{std::cout << "ERROR: OBJECTS OUT OF RANGE"<<'\n';}
+                else{std::cout << "ERROR: Objects array out of range..."<<'\n';}
             }
 
           nlohmann::json msgJson;
-
-          //std::vector<double> next_x_vals;
-          //std::vector<double> next_y_vals;
-
           /**
            * TODO: define a path made up of (x,y) points that the car will visit
            *   sequentially every .02 seconds

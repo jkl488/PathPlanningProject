@@ -192,7 +192,54 @@ dependencies: \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/json.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp \
-  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp \
-  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/helpers.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/Dense \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/LU \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/misc/Kernel.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/misc/Image.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/LU/FullPivLU.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/LU/PartialPivLU.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/LU/Determinant.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/LU/InverseImpl.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/LU/arch/Inverse_SSE.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/SVD \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/misc/RealSvd2x2.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/SVD/UpperBidiagonalization.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/SVD/SVDBase.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/SVD/JacobiSVD.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/SVD/BDCSVD.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/Geometry \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/OrthoMethods.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/EulerAngles.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/Homogeneous.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/RotationBase.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/Rotation2D.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/Quaternion.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/AngleAxis.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/Transform.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/Translation.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/Scaling.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/Hyperplane.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/ParametrizedLine.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/AlignedBox.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/Umeyama.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Geometry/arch/Geometry_SSE.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/Eigenvalues \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/Tridiagonalization.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/RealSchur.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/./HessenbergDecomposition.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/EigenSolver.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/./RealSchur.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/./Tridiagonalization.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/HessenbergDecomposition.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/ComplexSchur.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/ComplexEigenSolver.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/./ComplexSchur.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/RealQZ.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/./RealQZ.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp

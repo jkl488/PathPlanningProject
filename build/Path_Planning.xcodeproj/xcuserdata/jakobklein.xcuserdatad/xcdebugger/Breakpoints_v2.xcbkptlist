@@ -7,17 +7,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "10F4413A-D1F3-46FA-BF49-3A22B3A90E74"
+            uuid = "13E04B8D-5648-428E-99AF-965F58058DE3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/HighwayPlanner.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "HighwayPlanner::step()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D461649A-1A7C-45A3-B4E3-6FEC7FBF1FA1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/main.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "main()"
             landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "801A9DC4-EDAE-4365-BE65-A2600E74A5D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/HighwayPlanner.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "HighwayPlanner::step()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "801A9DC4-EDAE-4365-BE65-A2600E74A5D8 - 40958e33c2afb87b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HighwayPlanner::step()"
+                  moduleName = "path_planning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakobklein/Desktop/Desktop/Udacity%20-%20Nanodegree%20Sefl%20driving%20cars%20engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "467">
+               </Location>
+               <Location
+                  uuid = "801A9DC4-EDAE-4365-BE65-A2600E74A5D8 - 40958e33c2afb87b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HighwayPlanner::step()"
+                  moduleName = "path_planning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakobklein/Desktop/Desktop/Udacity%20-%20Nanodegree%20Sefl%20driving%20cars%20engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "488">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
