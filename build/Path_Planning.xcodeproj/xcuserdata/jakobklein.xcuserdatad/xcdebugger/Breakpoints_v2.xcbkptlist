@@ -14,8 +14,8 @@
             filePath = "src/HighwayPlanner.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "HighwayPlanner::step()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "src/main.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
@@ -46,13 +46,13 @@
             filePath = "src/HighwayPlanner.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "HighwayPlanner::step()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "801A9DC4-EDAE-4365-BE65-A2600E74A5D8 - 40958e33c2afb87b"
+                  uuid = "801A9DC4-EDAE-4365-BE65-A2600E74A5D8 - 40958e33c2afb7e6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -62,12 +62,12 @@
                   urlString = "file:///Users/jakobklein/Desktop/Desktop/Udacity%20-%20Nanodegree%20Sefl%20driving%20cars%20engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "467">
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "514">
                </Location>
                <Location
-                  uuid = "801A9DC4-EDAE-4365-BE65-A2600E74A5D8 - 40958e33c2afb87b"
+                  uuid = "801A9DC4-EDAE-4365-BE65-A2600E74A5D8 - 40958e33c2afb7e6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -77,9 +77,9 @@
                   urlString = "file:///Users/jakobklein/Desktop/Desktop/Udacity%20-%20Nanodegree%20Sefl%20driving%20cars%20engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "488">
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "535">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -51,6 +51,8 @@ int main() {
     map_waypoints_dy.push_back(d_y);
   }
     highway_planner.setMap(map_waypoints_x, map_waypoints_y, map_waypoints_s, map_waypoints_dx, map_waypoints_dy);
+    
+  highway_planner.init();
 
   h.onMessage([&highway_planner,&map_waypoints_x,&map_waypoints_y,&map_waypoints_s,
                &map_waypoints_dx,&map_waypoints_dy]
@@ -72,11 +74,11 @@ int main() {
           // j[1] is the data JSON object
           
           // Main car's localization Data
-          double car_x = j[1]["x"];
-          double car_y = j[1]["y"];
+          //double car_x = j[1]["x"];
+          //double car_y = j[1]["y"];
           //double car_s = j[1]["s"];
           //double car_d = j[1]["d"];
-          double car_yaw = j[1]["yaw"];
+          //double car_yaw = j[1]["yaw"];
           //double car_speed = j[1]["speed"];
             highway_planner.setVehicleState(j[1]["x"], j[1]["y"], j[1]["s"], j[1]["d"], j[1]["yaw"], j[1]["speed"]);
 

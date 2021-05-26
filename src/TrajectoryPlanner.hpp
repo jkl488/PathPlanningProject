@@ -18,14 +18,18 @@ class TrajectoryPlanner
 {
     
 public:
-    void init();
+    void init(std::shared_ptr<VehicleState> vehicle_state, std::shared_ptr<ObjectList> object_list , std::shared_ptr<WaypointMap> global_map,std::shared_ptr<OutputPath> output_path);
     void step();
 private:
+    std::shared_ptr<VehicleState> vehicle_state_ = nullptr;
+    std::shared_ptr<ObjectList> object_list_ = nullptr;
+    std::shared_ptr<OutputPath> output_path_ = nullptr;
+    std::shared_ptr<WaypointMap> global_map_ = nullptr;
     Eigen::MatrixXd time_matrix_;
     Eigen::MatrixXd time_matrix_inverse_;
     int current_planning_time_ = 0;
     void GenerateLateralTrajectory();
-    FifthOrderPolynomial CalculateFithOrderPolynomialCoefficients(PlanningState start_state, PlanningState final_state, int planning_time);
+    FifthOrderPolynomial CalculateFithOrderPolynomialCoefficients(PlanningState start_state, PlanningState final_state, double planning_time);
     void SetTimeMatrix_inverse(int planning_time);
     
     

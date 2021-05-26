@@ -17,10 +17,16 @@ void BehaviorPlanner::init(std::shared_ptr<VehicleState> vehicle_state, std::sha
     vehicle_state_ = vehicle_state;
     object_list_ = object_list;
     global_map_ = global_map;
+    
+    current_state_ = ManeuverKeepLane; //could also be init, but not yet needed
 }
+
 void BehaviorPlanner::step()
 {
-    for(int i = 0; i < object_list_->objects.size(); ++i)
+    runStateMachine();
+    
+    
+    /*for(int i = 0; i < object_list_->objects.size(); ++i)
     {
         std::cout << "ID: " << object_list_->objects.at(i).id << '\n';
         std::cout << "x: " << object_list_->objects.at(i).position_x_world << '\n';
@@ -29,9 +35,11 @@ void BehaviorPlanner::step()
         std::cout << "vy: " << object_list_->objects.at(i).velocity_y_world << '\n';
         std::cout << "s: " << object_list_->objects.at(i).position_s << '\n';
         std::cout << "d: " << object_list_->objects.at(i).position_d << '\n';
-    }
+        std::cout << "lane_assignment: " << object_list_->objects.at(i).lane_assignment << '\n';
+    }*/
     
 }
+
 void BehaviorPlanner::runStateMachine()
 {
     
@@ -77,4 +85,17 @@ void BehaviorPlanner::runStateMachine()
         default:
             break;
     }
+}
+
+void BehaviorPlanner::runManeuverKeepLane()
+{
+    //check if there are objects in out lane and get the closest in front of us
+    //check if it is moving (TODO: or static->avoid or brake)
+    //check if we already should follow
+    //Not close enough->free drive
+    //if we are not in lane 2(right) and we where enough steps in keep lane, prepare to go to right
+    
+    //Close enough, FOLLOW (TODO: technically we could only overtake left)
+    //If speed is above our target speed, keep following
+    //Else, prepare lane change, if we where enough steps in Keep lane
 }

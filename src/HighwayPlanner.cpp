@@ -31,7 +31,7 @@ void HighwayPlanner::init()
     {
         is_initialized_ = true;
         behavior_planner_.init(vehicle_state_, object_list_, global_map_);
-        //trajectory_planner_.init();
+        trajectory_planner_.init(vehicle_state_, object_list_, global_map_, output_path_);
     }
     
 }
@@ -42,8 +42,10 @@ void HighwayPlanner::step()
         std::cout << "ERROR: Highway planner is not properly initialized..." << '\n';
         return;
     }
-    
     behavior_planner_.step();
+    trajectory_planner_.step();
+    //prediction.step();
+    //trajectory_planner_.step(); //should get previous path and predictions
     
     /*
      1. try to understand the communication and its signals
@@ -106,10 +108,17 @@ void HighwayPlanner::setVehicleState(double x, double y, double s, double d, dou
     vehicle_state_->position_d = d;
     vehicle_state_->heading = heading;
     vehicle_state_->speed = speed;
-    std::cout << "Current position: x-> " << vehicle_state_->position_x << " y-> " << vehicle_state_->position_y << '\n';
-    std::cout << "Current heading: " << vehicle_state_->heading << '\n';
-    std::cout << "Current speed: " << vehicle_state_->speed << '\n';
+    if(vehicle_state_->position_d <= 4)
+    {vehicle_state_->lane_assignment = 0;}
+    else if(vehicle_state_->position_d > 4 && vehicle_state_->position_d <= 8)
+    {vehicle_state_->lane_assignment = 1;}
+    else if(vehicle_state_->position_d > 8 && vehicle_state_->position_d <= 12)
+    {vehicle_state_->lane_assignment = 2;}
     
+    std::cout << "setVehicleState: Current position: x-> " << vehicle_state_->position_x << " y-> " << vehicle_state_->position_y << '\n';
+    std::cout << "setVehicleState: Current heading: " << vehicle_state_->heading << '\n';
+    std::cout << "setVehicleState: Current speed: " << vehicle_state_->speed << '\n';
+    std::cout << "setVehicleState: Current lane: " << vehicle_state_->lane_assignment << '\n';
 }
 
 void HighwayPlanner::setObjectToIndex(int index, unsigned int id, double pos_x, double pos_y, double vx, double vy, double s, double d)
@@ -118,8 +127,15 @@ void HighwayPlanner::setObjectToIndex(int index, unsigned int id, double pos_x, 
     {
         std::cout << "ERROR: object_list_ is nullptr!" << '\n';
     }
-    Object new_object{id,pos_x,pos_y,vx,vy,s,d};
-    object_list_->objects.at(index) = new_object;
+    unsigned int lane_assignment;
+    if(d <= 4)
+    { lane_assignment = 0;}
+    else if(d > 4 && d <= 8)
+    { lane_assignment = 1;}
+    else if(d > 8 && d <= 12)
+    { lane_assignment = 2;}
+
+    object_list_->objects.at(index) = std::move(Object{id,pos_x,pos_y,vx,vy,s,d,lane_assignment});
 }
 
 void HighwayPlanner::clearObjectList()
@@ -127,6 +143,7 @@ void HighwayPlanner::clearObjectList()
     if(!object_list_)
     {
         std::cout << "ERROR: object_list_ is nullptr!" << '\n';
+        return;
     }
     Object empty_object{255,0.0,0.0,0.0,0.0,0.0,0.0};
     

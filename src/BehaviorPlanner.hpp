@@ -36,14 +36,21 @@ private:
         ManeuverPrepareLaneChangeRight = 4U,
         ManeuverLaneChangeRight = 5U
     };
-    GoalPosition current_goal_;
+    GoalState current_goal_;
     Maneuver current_state_;
     //counts how long we are in the current state
     unsigned int state_counter_;
-    //flag to check if lane change to the right is allowed (in leftmost lane and if we aborted LC left)
-    bool right_lane_change_allowed = false;
-    
+    //run the whole state machine
     void runStateMachine();
+    //Run lane keeping maneuver
+    void runManeuverKeepLane();
+    void transitionToLaneChangeLeft();
+    void transitionToLaneChangeRight();
+    void runManeuverLaneChangeLeft();
+    void runManeuverLaneChangeRight();
+    
+    
+    //cost functions
     
 };
 

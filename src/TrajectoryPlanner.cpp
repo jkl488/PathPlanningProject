@@ -7,49 +7,39 @@
 
 #include "TrajectoryPlanner.hpp"
 #include <vector>
+#include <iostream>
+
+void TrajectoryPlanner::init(std::shared_ptr<VehicleState> vehicle_state, std::shared_ptr<ObjectList> object_list , std::shared_ptr<WaypointMap> global_map,std::shared_ptr<OutputPath> output_path)
+{
+    vehicle_state_ = vehicle_state;
+    object_list_ = object_list;
+    global_map_ = global_map;
+    output_path_ = output_path;
+}
 
 void TrajectoryPlanner::step()
 {
-    /*std::vector<double> next_x_vals;
-    std::vector<double> next_y_vals;
-    double dist_inc = 0.5;
-    for (int i = 0; i < 50; ++i) {
-      next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(car_yaw)));
-      next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(car_yaw)));
+    GoalCoordianteList trajectory;
+    /*FifthOrderPolynomial polynomial_trajectory = CalculateFithOrderPolynomialCoefficients(current_state, final_state; 5.0);*/
+    
+    for(int i = 0; i < object_list_->objects.size(); ++i)
+    {
+        std::cout << "Traj Planner" << '\n';
+        std::cout << "ID: " << object_list_->objects.at(i).id << '\n';
+        std::cout << "x: " << object_list_->objects.at(i).position_x_world << '\n';
+        std::cout << "y: " << object_list_->objects.at(i).position_y_world << '\n';
+        std::cout << "vx: " << object_list_->objects.at(i).velocity_x_world << '\n';
+        std::cout << "vy: " << object_list_->objects.at(i).velocity_y_world << '\n';
+        std::cout << "s: " << object_list_->objects.at(i).position_s << '\n';
+        std::cout << "d: " << object_list_->objects.at(i).position_d << '\n';
+        std::cout << "lane_assignment: " << object_list_->objects.at(i).lane_assignment << '\n';
     }
-    double pos_x;
-    double pos_y;
-    double angle;
-    int path_size = previous_path_x.size();
+    
 
-    for (int i = 0; i < path_size; ++i) {
-      next_x_vals.push_back(previous_path_x[i]);
-      next_y_vals.push_back(previous_path_y[i]);
-    }
 
-    if (path_size == 0) {
-      pos_x = car_x;
-      pos_y = car_y;
-      angle = deg2rad(car_yaw);
-    } else {
-      pos_x = previous_path_x[path_size-1];
-      pos_y = previous_path_y[path_size-1];
-
-      double pos_x2 = previous_path_x[path_size-2];
-      double pos_y2 = previous_path_y[path_size-2];
-      angle = atan2(pos_y-pos_y2,pos_x-pos_x2);
-    }
-
-    double dist_inc = 0.5;
-    for (int i = 0; i < 50-path_size; ++i) {
-      next_x_vals.push_back(pos_x+(dist_inc)*cos(angle+(i+1)*(pi()/100)));
-      next_y_vals.push_back(pos_y+(dist_inc)*sin(angle+(i+1)*(pi()/100)));
-      pos_x += (dist_inc)*cos(angle+(i+1)*(pi()/100));
-      pos_y += (dist_inc)*sin(angle+(i+1)*(pi()/100));
-    }*/
 }
 
-FifthOrderPolynomial TrajectoryPlanner::CalculateFithOrderPolynomialCoefficients(PlanningState start_state, PlanningState final_state, int planning_time)
+FifthOrderPolynomial TrajectoryPlanner::CalculateFithOrderPolynomialCoefficients(PlanningState start_state, PlanningState final_state, double planning_time)
 {
     
     FifthOrderPolynomial result_polynomial;

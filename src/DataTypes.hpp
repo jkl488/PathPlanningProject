@@ -41,6 +41,7 @@ struct VehicleState {
     double position_d;
     double heading;
     double speed;
+    int lane_assignment; //0 leftmost, 1 middle, 2 right
     BoundingCircles bounding_circles;
 };
 //Represents a object
@@ -52,6 +53,7 @@ struct Object{
     double velocity_y_world;
     double position_s;
     double position_d;
+    unsigned int lane_assignment;
     BoundingCircles bounding_circles;
 };
 
@@ -87,17 +89,19 @@ struct FifthOrderPolynomial
     double a5;
 };
 
-//State consisting of position, velocity and acceleration
+//State consisting of position, velocity, acceleration and goal planning time
 struct PlanningState
 {
     double position;
     double position_dot;
     double position_dot_dot;
+    double T_max;
 };
 
-struct GoalPosition
+struct GoalState
 {
-    
+    PlanningState lateral;
+    PlanningState longitudinal;
 };
 
 #endif /* DataTypes_hpp */
