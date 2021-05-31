@@ -16,10 +16,11 @@
 
 HighwayPlanner::HighwayPlanner()
 {
-    vehicle_state_ = std::make_shared<VehicleState>();
-    object_list_ = std::make_shared<ObjectList>();
-    output_path_ = std::make_shared<OutputPath>();
-    global_map_ = std::make_shared<WaypointMap>();
+    vehicle_pose_ptr_ = std::make_shared<VehiclePose>();
+    object_list_ptr_ = std::make_shared<ObjectList>();
+    output_path_ptr_ = std::make_shared<OutputPath>();
+    global_map_ptr_ = std::make_shared<WaypointMap>();
+    
 }
 
 HighwayPlanner::~HighwayPlanner()
@@ -27,11 +28,12 @@ HighwayPlanner::~HighwayPlanner()
 
 void HighwayPlanner::init()
 {
-    if(vehicle_state_ && object_list_ && output_path_ && global_map_)
+    if(vehicle_pose_ptr_ && object_list_ptr_ && output_path_ptr_ && global_map_ptr_)
     {
         is_initialized_ = true;
-        behavior_planner_.init(vehicle_state_, object_list_, global_map_);
-        trajectory_planner_.init(vehicle_state_, object_list_, global_map_, output_path_);
+        behavior_planner_.init(vehicle_pose_ptr_, object_list_ptr_, global_map_ptr_);
+        trajectory_planner_.init(vehicle_pose_ptr_, object_list_ptr_, global_map_ptr_, output_path_ptr_);
+        object_prediction_.init(object_list_ptr_);
     }
     
 }
@@ -42,21 +44,22 @@ void HighwayPlanner::step()
         std::cout << "ERROR: Highway planner is not properly initialized..." << '\n';
         return;
     }
+    object_prediction_.predictObjectTrajectories();
     behavior_planner_.step();
     trajectory_planner_.step();
     //prediction.step();
     //trajectory_planner_.step(); //should get previous path and predictions
     
-    /*
-     1. try to understand the communication and its signals
-
-     2. implement a longitudinal planner and try to drive safely in one lane, without hitting the preceding vehicles and travelling with the fastest admissible speed.
-
-     3. Implement the lane change trajectory with a very basic lane change decision making
-
-     4. Improve your lane change decision making by setting up a cost function
-
-     5. refine the cost function
+    
+//     1. try to understand the communication and its signals
+//
+//     2. implement a longitudinal planner and try to drive safely in one lane, without hitting the preceding vehicles and travelling with the fastest admissible speed.
+//
+//     3. Implement the lane change trajectory with a very basic lane change decision making
+//
+//     4. Improve your lane change decision making by setting up a cost function
+//
+//     5. refine the cost function
      
     //road model
     //previous path
@@ -64,90 +67,107 @@ void HighwayPlanner::step()
     //run pocessing if needed
     //run behavior planning
     //run trajectory planning
-    for(int i = 0; i < object_list_->objects.size(); ++i)
-    {
-        std::cout << "ID: " << object_list_->objects.at(i).id << '\n';
-        std::cout << "x: " << object_list_->objects.at(i).position_x_world << '\n';
-        std::cout << "y: " << object_list_->objects.at(i).position_y_world << '\n';
-        std::cout << "vx: " << object_list_->objects.at(i).velocity_x_world << '\n';
-        std::cout << "vy: " << object_list_->objects.at(i).velocity_y_world << '\n';
-        std::cout << "s: " << object_list_->objects.at(i).position_s << '\n';
-        std::cout << "d: " << object_list_->objects.at(i).position_d << '\n';
-    }*/
+
     
     
-    double dist_inc = 0.1;
-    output_path_->planned_coordinates_cartesian.next_x_vals.clear();
-    output_path_->planned_coordinates_cartesian.next_y_vals.clear();
-    for (int i = 0; i < 50; ++i) {
-        double next_s = vehicle_state_->position_s+(i+1)*dist_inc;
-        double next_d = 6;
-        std::vector<double> xy = helpers::getXY(next_s, next_d, global_map_->map_waypoints_s, global_map_->map_waypoints_x, global_map_->map_waypoints_y);
-        //output_path_->planned_coordinates_cartesian.next_x_vals.push_back(vehicle_state_->position_x+(dist_inc*i)*cos(vehicle_state_->heading * M_PI / 180));
-        //output_path_->planned_coordinates_cartesian.next_y_vals.push_back(vehicle_state_->position_y+(dist_inc*i)*sin(vehicle_state_->heading* M_PI / 180));
-        output_path_->planned_coordinates_cartesian.next_x_vals.push_back(xy.at(0));
-        output_path_->planned_coordinates_cartesian.next_y_vals.push_back(xy.at(1));
-    }
  
 }
 
 void HighwayPlanner::setMap(std::vector<double> waypoints_x, std::vector<double> waypoints_y, std::vector<double> waypoints_s, std::vector<double> waypoints_dx, std::vector<double> waypoints_dy)
 {
-    global_map_ = std::make_shared<WaypointMap>(std::move(WaypointMap{waypoints_x,waypoints_y,waypoints_s,waypoints_dx,waypoints_dy}));
+    global_map_ptr_ = std::make_shared<WaypointMap>(std::move(WaypointMap{waypoints_x,waypoints_y,waypoints_s,waypoints_dx,waypoints_dy}));
 }
 
-void HighwayPlanner::setVehicleState(double x, double y, double s, double d, double heading, double speed)
+void HighwayPlanner::setVehiclePose(double x, double y, double s, double d, double heading, double speed, int num_previous_path_left)
 {
-    if(!vehicle_state_)
+    if(!vehicle_pose_ptr_)
     {
-        std::cout << "ERROR: vehicle_state_ is nullptr!" << '\n';
+        std::cout << "ERROR: vehicle_pose_ is nullptr!" << '\n';
     }
-    vehicle_state_->position_x = x;
-    vehicle_state_->position_y = y;
-    vehicle_state_->position_s = s;
-    vehicle_state_->position_d = d;
-    vehicle_state_->heading = heading;
-    vehicle_state_->speed = speed;
-    if(vehicle_state_->position_d <= 4)
-    {vehicle_state_->lane_assignment = 0;}
-    else if(vehicle_state_->position_d > 4 && vehicle_state_->position_d <= 8)
-    {vehicle_state_->lane_assignment = 1;}
-    else if(vehicle_state_->position_d > 8 && vehicle_state_->position_d <= 12)
-    {vehicle_state_->lane_assignment = 2;}
     
-    std::cout << "setVehicleState: Current position: x-> " << vehicle_state_->position_x << " y-> " << vehicle_state_->position_y << '\n';
-    std::cout << "setVehicleState: Current heading: " << vehicle_state_->heading << '\n';
-    std::cout << "setVehicleState: Current speed: " << vehicle_state_->speed << '\n';
-    std::cout << "setVehicleState: Current lane: " << vehicle_state_->lane_assignment << '\n';
+    int steps_travelled = CONFIGURATION::num_trajectory_points - num_previous_path_left;
+    vehicle_pose_ptr_->position.x = x;
+    vehicle_pose_ptr_->position.y = y;
+    
+    double time_travelled = num_previous_path_left<=0.00001 ? 0.0 : steps_travelled * CONFIGURATION::delta_t_trajectory_points;
+    if(time_travelled<=0.00001)
+    {
+        vehicle_pose_ptr_->position_s_dot_dot = 0.0;
+        vehicle_pose_ptr_->position_s_dot = 0.0;
+        vehicle_pose_ptr_->position_d_dot_dot = 0.0;
+        vehicle_pose_ptr_->position_d_dot = 0.0;
+    }
+    else
+    {
+        double s_dot = (s - vehicle_pose_ptr_->position_s)/time_travelled;
+        vehicle_pose_ptr_->position_s_dot_dot = (s_dot - vehicle_pose_ptr_->position_s_dot)/time_travelled;
+        vehicle_pose_ptr_->position_s_dot = s_dot;
+        
+        double d_dot = (d-vehicle_pose_ptr_->position_d)/time_travelled;
+        vehicle_pose_ptr_->position_d_dot_dot = (d_dot-vehicle_pose_ptr_->position_d_dot)/time_travelled;
+        vehicle_pose_ptr_->position_d_dot = d_dot;
+    }
+    vehicle_pose_ptr_->position_s = s;
+    vehicle_pose_ptr_->position_d = d;
+    
+    vehicle_pose_ptr_->heading = heading;
+    vehicle_pose_ptr_->speed = speed;
+    //Assign lane
+    if(vehicle_pose_ptr_->position_d > CONFIGURATION::left_lane_lower_limit && vehicle_pose_ptr_->position_d <= CONFIGURATION::left_lane_upper_limit)
+    {vehicle_pose_ptr_->lane_assignment = 0;}
+    else if(vehicle_pose_ptr_->position_d > CONFIGURATION::middle_lane_lower_limit && vehicle_pose_ptr_->position_d <= CONFIGURATION::middle_lane_upper_limit)
+    {vehicle_pose_ptr_->lane_assignment = 1;}
+    else if(vehicle_pose_ptr_->position_d > CONFIGURATION::right_lane_lower_limit && vehicle_pose_ptr_->position_d <= CONFIGURATION::right_lane_upper_limit)
+    {vehicle_pose_ptr_->lane_assignment = 2;}
+    
+    std::cout << "setVehiclePose: Current position: x-> " << vehicle_pose_ptr_->position.x << " y-> " << vehicle_pose_ptr_->position.y << '\n';
+    std::cout << "setVehiclePose: Current heading: " << vehicle_pose_ptr_->heading << '\n';
+    std::cout << "setVehiclePose: Current speed: " << vehicle_pose_ptr_->speed << '\n';
+    std::cout << "setVehiclePose: Current lane: " << vehicle_pose_ptr_->lane_assignment << '\n';
 }
 
 void HighwayPlanner::setObjectToIndex(int index, unsigned int id, double pos_x, double pos_y, double vx, double vy, double s, double d)
 {
-    if(!object_list_)
+    if(!object_list_ptr_)
     {
         std::cout << "ERROR: object_list_ is nullptr!" << '\n';
     }
+    //assign lane
     unsigned int lane_assignment;
-    if(d <= 4)
-    { lane_assignment = 0;}
-    else if(d > 4 && d <= 8)
-    { lane_assignment = 1;}
-    else if(d > 8 && d <= 12)
-    { lane_assignment = 2;}
+    if(d > CONFIGURATION::left_lane_lower_limit && d <= CONFIGURATION::left_lane_upper_limit)
+    {lane_assignment = 0;}
+    else if(d > CONFIGURATION::middle_lane_lower_limit && d <= CONFIGURATION::middle_lane_upper_limit)
+    {lane_assignment = 1;}
+    else if(d > CONFIGURATION::right_lane_lower_limit && d <= CONFIGURATION::right_lane_upper_limit)
+    {lane_assignment = 2;}
+    
+    //Create bounding circle
+    Circle bounding_circle{s,d,CONFIGURATION::object_bounding_circle_radius};
 
-    object_list_->objects.at(index) = std::move(Object{id,pos_x,pos_y,vx,vy,s,d,lane_assignment});
+    //get heading
+    double heading = std::atan2(vy, vx);//TODO: verify
+    object_list_ptr_->objects.at(index) = std::move(Object{id,pos_x,pos_y,vx,vy,s,d,lane_assignment,heading,bounding_circle});
 }
 
 void HighwayPlanner::clearObjectList()
 {
-    if(!object_list_)
+    if(!object_list_ptr_)
     {
         std::cout << "ERROR: object_list_ is nullptr!" << '\n';
         return;
     }
-    Object empty_object{255,0.0,0.0,0.0,0.0,0.0,0.0};
+    unsigned int id;
+    Vector2d empty{0.0,0.0};
+    Vector2d velocity;
+    double position_s;
+    double position_d;
+    unsigned int lane_assignment;
+    double heading;
+    Circle empty_circle{position_s,position_s,0.0};
     
-    for(Object& obj : object_list_->objects)
+    Object empty_object{255,empty,empty,0.0,0.0,255,0.0,empty_circle};
+    
+    for(Object& obj : object_list_ptr_->objects)
     {
         obj = empty_object;
     }
@@ -156,9 +176,9 @@ void HighwayPlanner::clearObjectList()
 
 GoalCoordianteList HighwayPlanner::GetOutputPath()
 {
-    if(!output_path_)
+    if(!output_path_ptr_)
     {
         std::cout << "ERROR: output_path_ is nullptr!" << '\n';
     }
-    return output_path_->planned_coordinates_cartesian;
+    return output_path_ptr_->planned_coordinates_cartesian;
 }

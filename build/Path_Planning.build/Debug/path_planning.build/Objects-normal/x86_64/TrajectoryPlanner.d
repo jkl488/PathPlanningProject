@@ -2,6 +2,7 @@ dependencies: \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/config.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/Core \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Core/util/DisableStupidWarnings.h \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Core/util/Macros.h \
@@ -175,4 +176,5 @@ dependencies: \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/RealQZ.h \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/./RealQZ.h \
-  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp

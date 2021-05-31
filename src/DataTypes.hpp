@@ -9,19 +9,23 @@
 
 #include <array>
 #include <vector>
+#include "config.hpp"
+
+//Vector in 2 dimensional space
+struct Vector2d
+{
+    double x;
+    double y;
+};
+
 //Circle with radius and center coordinates
 struct Circle
 {
+    double postition_s;
+    double position_d;
     double radius;
-    double position_x;
-    double position_y;
 };
 
-//Represents the vehicle for collision checks
-struct BoundingCircles
-{
-    std::array<Circle,3> circles;
-};
 
 //Represents a global map consisting of waypoints
 struct WaypointMap
@@ -34,27 +38,30 @@ struct WaypointMap
 };
 
 //Represents the current state of the vehicle
-struct VehicleState {
-    double position_x;
-    double position_y;
-    double position_s;
-    double position_d;
-    double heading;
-    double speed;
-    int lane_assignment; //0 leftmost, 1 middle, 2 right
-    BoundingCircles bounding_circles;
+struct VehiclePose {
+    Vector2d position;
+    double position_s{0.0};
+    double position_s_dot{0.0};
+    double position_s_dot_dot{0.0};
+    double position_d{0.0};
+    double position_d_dot{0.0};
+    double position_d_dot_dot{0.0};
+    double heading{0.0};
+    double speed{0.0};
+    int lane_assignment{255}; //0 leftmost, 1 middle, 2 right
+    Circle bounding_circle;
 };
 //Represents a object
 struct Object{
     unsigned int id;
-    double position_x_world;
-    double position_y_world;
-    double velocity_x_world;
-    double velocity_y_world;
+    Vector2d position;
+    Vector2d velocity;
     double position_s;
     double position_d;
     unsigned int lane_assignment;
-    BoundingCircles bounding_circles;
+    double heading;
+    Circle bounding_circle;
+    std::array<double,CONFIGURATION::num_trajectory_points> predicted_longitudinal_position; //assume it holds its position in the lane
 };
 
 //Represents a list of all objects on the right side of the road
@@ -79,7 +86,7 @@ struct OutputPath
 
 
 //Polynomial coefficients of a fifth order polynomial
-struct FifthOrderPolynomial
+struct QuinticPolynomial
 {
     double a0;
     double a1;
@@ -87,6 +94,51 @@ struct FifthOrderPolynomial
     double a3;
     double a4;
     double a5;
+    
+    double GetValue(double time)
+    {
+        return a0 + a1 * time + a2 * time * time + a3 * time * time * time + a4 * time * time * time * time + a5 * time * time * time * time * time;
+    }
+    double GetDotValue(double time)
+    {
+        return a1 + 2.0 *  a2 * time +  3.0 * a3 * time * time + 4.0 *  a4 * time * time * time + 5.0 *  a5 * time * time * time * time;
+    }
+    double GetDotDotValue(double time)
+    {
+        return 2.0 * a2 + 6.0 * a3 * time + 12.0 * a4 * time * time + 20.0 * a5 * time * time * time;
+    }
+    double GetDotDotDotValue(double time)
+    {
+        return 6.0 * a3 + 24.0 * a4 * time + 60.0 * a5 * time * time;
+    }
+};
+
+//Polynomial coefficients of a fourth order polynomial
+struct QuarticPolynomial
+{
+    double a0;
+    double a1;
+    double a2;
+    double a3;
+    double a4;
+    
+    double GetValue(double time)
+    {
+        return a0 + a1 * time + a2 * time * time + a3 * time * time * time + a4 * time * time * time * time;
+    }
+    double GetDotValue(double time)
+    {
+        return a1 + 2.0 *  a2 * time +  3.0 * a3 * time * time + 4.0 *  a4 * time * time * time;
+    }
+    double GetDotDotValue(double time)
+    {
+        return 2.0 * a2 + 6.0 * a3 * time + 12.0 * a4 * time * time;
+    }
+    double GetDotDotDotValue(double time)
+    {
+        return 6.0 * a3 + 24.0 * a4 * time;
+    }
+    
 };
 
 //State consisting of position, velocity, acceleration and goal planning time
@@ -95,7 +147,6 @@ struct PlanningState
     double position;
     double position_dot;
     double position_dot_dot;
-    double T_max;
 };
 
 struct GoalState
@@ -103,5 +154,41 @@ struct GoalState
     PlanningState lateral;
     PlanningState longitudinal;
 };
+
+
+struct TrajectoryPoint
+{
+    Vector2d position;
+    Vector2d velocity;
+    Vector2d acceleration;
+    double time{0.0};
+    double heading;
+    double curvature;
+};
+
+struct DiscretizedTrajectory
+{
+    GoalCoordianteList outputTrajectoryCombined;
+    std::vector<TrajectoryPoint> combinedExtendedTrajectoryData;
+};
+
+struct ObjectPath
+{
+    std::array<Vector2d,50> predicted_positions;
+};
+
+//Defining the states the state machine can be in
+enum Maneuver : unsigned int
+{
+    ManeuverInit = 0U,
+    ManeuverKeepLane = 1U,
+    ManeuverPrepareLaneChangeLeft = 2U,
+    ManeuverLaneChangeLeft = 3U,
+    ManeuverPrepareLaneChangeRight = 4U,
+    ManeuverLaneChangeRight = 5U
+};
+
+typedef enum Maneuver Maneuver;
+
 
 #endif /* DataTypes_hpp */

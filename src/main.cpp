@@ -9,6 +9,8 @@
 //new includes
 #include "HighwayPlanner.hpp"
 #include "HelperFunctions.hpp"
+#include "spline.h"
+#include <algorithm>
 
 
 int main() {
@@ -44,12 +46,27 @@ int main() {
     iss >> s;
     iss >> d_x;
     iss >> d_y;
+      std::cout << x <<", " << y << std::endl;
     map_waypoints_x.push_back(x);
     map_waypoints_y.push_back(y);
     map_waypoints_s.push_back(s);
     map_waypoints_dx.push_back(d_x);
     map_waypoints_dy.push_back(d_y);
   }
+    //std::sort( map_waypoints_x.begin(), map_waypoints_x.end() );
+    //std::sort( map_waypoints_y.begin(), map_waypoints_y.end() );
+    
+    //go through the list and remove duplicates in both
+
+    //pobably when pushing back check if > then the last in array, else do neithe rpush x nor y
+    /*std::sort( map_waypoints_x.begin(), map_waypoints_x.end() );
+    map_waypoints_x.erase( std::unique( map_waypoints_x.begin(), map_waypoints_x.end() ), map_waypoints_x.end() );
+    std::sort( map_waypoints_y.begin(), map_waypoints_y.end() );
+    map_waypoints_y.erase( std::unique( map_waypoints_y.begin(), map_waypoints_y.end() ), map_waypoints_y.end() );*/
+    
+    //tk::spline s;
+    //s.set_points(map_waypoints_x, map_waypoints_y);
+    
     highway_planner.setMap(map_waypoints_x, map_waypoints_y, map_waypoints_s, map_waypoints_dx, map_waypoints_dy);
     
   highway_planner.init();
@@ -73,21 +90,25 @@ int main() {
         if (event == "telemetry") {
           // j[1] is the data JSON object
           
-          // Main car's localization Data
-          //double car_x = j[1]["x"];
-          //double car_y = j[1]["y"];
-          //double car_s = j[1]["s"];
-          //double car_d = j[1]["d"];
-          //double car_yaw = j[1]["yaw"];
-          //double car_speed = j[1]["speed"];
-            highway_planner.setVehicleState(j[1]["x"], j[1]["y"], j[1]["s"], j[1]["d"], j[1]["yaw"], j[1]["speed"]);
-
+          
           // Previous path data given to the Planner
           auto previous_path_x = j[1]["previous_path_x"];
           auto previous_path_y = j[1]["previous_path_y"];
           // Previous path's end s and d values 
           double end_path_s = j[1]["end_path_s"];
           double end_path_d = j[1]["end_path_d"];
+            
+            OutputPath previous_path;
+            previous_path.end_path_d = end_path_d;
+            previous_path.end_path_s = end_path_s;
+            for(int i = 0; i < previous_path_x.size();++i)
+            {
+                previous_path.planned_coordinates_cartesian.next_x_vals.push_back(previous_path_x[i]);
+                previous_path.planned_coordinates_cartesian.next_y_vals.push_back(previous_path_y[i]);
+            }
+            // Main car's localization Data
+              highway_planner.setVehiclePose(j[1]["x"], j[1]["y"], j[1]["s"], j[1]["d"], j[1]["yaw"], j[1]["speed"],previous_path_x.size());
+
 
           // Sensor Fusion Data, a list of all other cars on the same side 
           //   of the road.

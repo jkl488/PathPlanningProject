@@ -11,31 +11,23 @@
 #include <stdio.h>
 #include "DataTypes.hpp"
 
+
 class BehaviorPlanner
 {
 public:
     BehaviorPlanner();
     ~BehaviorPlanner();
-    void init(std::shared_ptr<VehicleState> vehicle_state, std::shared_ptr<ObjectList> object_list, std::shared_ptr<WaypointMap> global_map);
+    void init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list, std::shared_ptr<WaypointMap> global_map);
     void step();
     
 private:
     bool is_initialized_ = false;
-    std::shared_ptr<VehicleState> vehicle_state_ = nullptr;
-    std::shared_ptr<ObjectList> object_list_ = nullptr;
-    std::shared_ptr<OutputPath> output_path_ = nullptr;
-    std::shared_ptr<WaypointMap> global_map_ = nullptr;
-    
-    //Defining the states the state machine can be in
-    enum Maneuver : unsigned int
-    {
-        ManeuverInit = 0U,
-        ManeuverKeepLane = 1U,
-        ManeuverPrepareLaneChangeLeft = 2U,
-        ManeuverLaneChangeLeft = 3U,
-        ManeuverPrepareLaneChangeRight = 4U,
-        ManeuverLaneChangeRight = 5U
-    };
+    std::shared_ptr<VehiclePose> vehicle_pose_ptr_ = nullptr;
+    std::shared_ptr<ObjectList> object_list_ptr_ = nullptr;
+    std::shared_ptr<OutputPath> output_path_ptr_ = nullptr;
+    std::shared_ptr<WaypointMap> global_map_ptr_ = nullptr;
+
+
     GoalState current_goal_;
     Maneuver current_state_;
     //counts how long we are in the current state
