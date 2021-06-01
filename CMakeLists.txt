@@ -10,7 +10,7 @@ set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 file(GLOB HEADERS src/*.h)
 file(GLOB HEADERS_HPP src/*.hpp)
 
-set(sources src/main.cpp src/HighwayPlanner.cpp src/BehaviorPlanner.cpp src/TrajectoryPlanner.cpp src/HelperFunctions.cpp src/ObjectPrediction.cpp ${HEADERS} ${HEADERS_HPP})
+set(sources src/main.cpp src/HighwayPlanner.cpp src/BehaviorPlanner.cpp src/TrajectoryPlanner.cpp src/HelperFunctions.cpp src/ObjectPrediction.cpp src/PolynomialSolver.cpp src/TrajectoryConverter.cpp ${HEADERS} ${HEADERS_HPP})
 
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 

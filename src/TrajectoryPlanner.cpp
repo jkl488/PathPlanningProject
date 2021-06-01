@@ -10,6 +10,8 @@
 #include <iostream>
 #include "HelperFunctions.hpp"
 #include "config.hpp"
+#include "PolynomialSolver.hpp"
+#include "TrajectoryConverter.hpp"
 
 
 void TrajectoryPlanner::init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list , std::shared_ptr<WaypointMap> global_map,std::shared_ptr<OutputPath> output_path)
@@ -18,17 +20,19 @@ void TrajectoryPlanner::init(std::shared_ptr<VehiclePose> vehicle_pose, std::sha
     object_list_ptr_ = object_list;
     global_map_ptr_ = global_map;
     output_path_ptr_ = output_path;
-    quintic_time_matrix_ = Eigen::MatrixXd::Zero(3, 3);
-    quintic_time_matrix_inverse_ = Eigen::MatrixXd::Zero(3, 3);
 }
 
 void TrajectoryPlanner::step()
 {
+    //Update the timestep
+    IncrementPlanningTimeStep();
+    
     //Generate a bunch of trajectories
     double goal_s_dot = CONFIGURATION::speed_limit_m_s;
     double goal_d =  6.0;
     double planning_time = CONFIGURATION::trajectory_planning_time_total;
-    double offset = 0.0;
+    //TODO: maybe we need to take number of executed elements into account
+    double offset = (current_planning_timestep_ )*CONFIGURATION::delta_t_trajectory_points;
     
     std::vector<DiscretizedTrajectory> t = GenerateVelocityKeepingInLaneTrajectory(goal_s_dot , goal_d, planning_time, offset);
 
@@ -44,10 +48,10 @@ void TrajectoryPlanner::step()
     //GoalCoordianteList trajectory;
     const PlanningState current_state_lat{vehicle_pose_ptr_->position_d,vehicle_pose_ptr_->position_d_dot,vehicle_pose_ptr_->position_d_dot_dot};//d,d_dot,d_dotdot,T
     const PlanningState goal_state_lat{6.0,0.0,0.0};//d,d_dot,d_dotdot,T
-    QuinticPolynomial lateral_trajectory = CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat, 5.0);
+    QuinticPolynomial lateral_trajectory = PolynomialSolver::CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat, 5.0);
     const PlanningState current_state_long{vehicle_pose_ptr_->position_s,vehicle_pose_ptr_->position_s_dot,vehicle_pose_ptr_->position_s_dot_dot};//s,s_dot,s_dotdot,T
     const PlanningState goal_state_long{vehicle_pose_ptr_->position_s + 30,10.0,0.0};//s,s_dot,s_dotdot,T
-    QuinticPolynomial longitudinal_trajectory = CalculateQuinticPolynomialCoefficients(current_state_long, goal_state_long, 5.0);
+    QuinticPolynomial longitudinal_trajectory = PolynomialSolver::CalculateQuinticPolynomialCoefficients(current_state_long, goal_state_long, 5.0);
     
     //double zero_s = GetPolynomialValue(longitudinal_trajectory, 0.0);
     //double zero_d = GetPolynomialValue(lateral_trajectory, 0.0);
@@ -87,10 +91,10 @@ std::vector<DiscretizedTrajectory> TrajectoryPlanner::GenerateVelocityKeepingInL
     //const double planning_time = 5.0;
     //GoalCoordianteList trajectory;
     
-    std::vector<QuinticPolynomial> polynomial_candidates_lateral;
-    polynomial_candidates_lateral.reserve(10);
-    std::vector<QuarticPolynomial> polynomial_candidates_longitudinal;
-    polynomial_candidates_lateral.reserve(10);
+    std::vector<QuinticPolynomialTrajectory> polynomial_candidates_lateral;
+    polynomial_candidates_lateral.reserve(30);
+    std::vector<QuarticPolynomialTrajectory> polynomial_candidates_longitudinal;
+    polynomial_candidates_lateral.reserve(30);
 
     
     for(int i = 0; i <= static_cast<int>(planning_time) ;++i)
@@ -106,37 +110,41 @@ std::vector<DiscretizedTrajectory> TrajectoryPlanner::GenerateVelocityKeepingInL
                 //>>>>>lateral<<<<<
                 //Lateral shifted traj
                 PlanningState goal_state_lat_pos_shift{(goal_d+(j*CONFIGURATION::lateral_goal_shift)),0.0,0.0};//d,d_dot,d_dotdot}
-                QuinticPolynomial lateral_trajectory_pos_shift = CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat_pos_shift, planning_end_time);
+                QuinticPolynomialTrajectory lateral_trajectory_pos_shift;
+                lateral_trajectory_pos_shift.max_planning_time = planning_end_time;
+                lateral_trajectory_pos_shift.polynomial = PolynomialSolver::CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat_pos_shift, planning_end_time);
                 polynomial_candidates_lateral.push_back(lateral_trajectory_pos_shift);
                 //>>>>>longitudinal<<<<<
                 PlanningState goal_state_long{0.0,CONFIGURATION::speed_limit_m_s - ((j+3) *CONFIGURATION::longitudinal_velocity_goal_shift),0.0};//s,s_dot,s_dotdot
                 //Generate Polynomial for longitudinal trajectory
-                QuarticPolynomial longitudinal_trajectory_shorter = CalculateQuarticPolynomialCoefficients(current_state_long, goal_state_long, planning_end_time);
+                QuarticPolynomialTrajectory longitudinal_trajectory_shorter;
+                longitudinal_trajectory_shorter.max_planning_time = planning_end_time;
+                longitudinal_trajectory_shorter.polynomial = PolynomialSolver::CalculateQuarticPolynomialCoefficients(current_state_long, goal_state_long, planning_end_time);
                 polynomial_candidates_longitudinal.push_back(longitudinal_trajectory_shorter);
             }
             //>>>>>lateral<<<<<
             //Generate Polynomial for lateral trajectory
             PlanningState goal_state_lat_neg_shift{(goal_d-(j*CONFIGURATION::lateral_goal_shift)),0.0,0.0};//d,d_dot,d_dotdot
-            QuinticPolynomial lateral_trajectory_neg_shift = CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat_neg_shift, planning_end_time);
+            QuinticPolynomialTrajectory lateral_trajectory_neg_shift;
+            lateral_trajectory_neg_shift.max_planning_time = planning_end_time;
+            lateral_trajectory_neg_shift.polynomial = PolynomialSolver::CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat_neg_shift, planning_end_time);
             polynomial_candidates_lateral.push_back(lateral_trajectory_neg_shift);
             
             //>>>>>longitudinal<<<<<
             //We do not care for goal position, but for the veloctiy, since not used in solver, safe to set to 0, we aim for velocity keeping in goal, so no more acceleration
             PlanningState goal_state_long{0.0,CONFIGURATION::speed_limit_m_s - (j *CONFIGURATION::longitudinal_velocity_goal_shift),0.0};//s,s_dot,s_dotdot
             //Generate Polynomial for longitudinal trajectory
-            QuarticPolynomial longitudinal_trajectory_longer = CalculateQuarticPolynomialCoefficients(current_state_long, goal_state_long, planning_end_time);
-            polynomial_candidates_longitudinal.push_back(longitudinal_trajectory_longer);
-            
-            
-            
-            
-
-            
+            QuarticPolynomialTrajectory longitudinal_trajectory_longer;
+            longitudinal_trajectory_longer.max_planning_time = planning_end_time;
+            longitudinal_trajectory_longer.polynomial = PolynomialSolver::CalculateQuarticPolynomialCoefficients(current_state_long, goal_state_long, planning_end_time);
+            polynomial_candidates_longitudinal.push_back(longitudinal_trajectory_longer);  
         }
     }
     //convert to discrete and add jerk weight
     int x = 5;
     
+    //TODO: discretize, calculate costs, combine select
+    DiscretizedTrajectory test = TrajectoryConverter::DiscretizeQuarticLongitudinalPolynomialTrajectory(polynomial_candidates_longitudinal.at(0));
     
 
     
@@ -148,78 +156,28 @@ std::vector<DiscretizedTrajectory> TrajectoryPlanner::GenerateFollowingTrajector
 std::vector<DiscretizedTrajectory> TrajectoryPlanner::GenerateMergeTrajectory(PlanningState start_state, PlanningState final_state, double planning_time, double offset)
 {}
 
+std::vector<DiscretizedTrajectory> TrajectoryPlanner::GenerateLaneChangeTrajectory()
+{}
 
-QuinticPolynomial TrajectoryPlanner::CalculateQuinticPolynomialCoefficients(PlanningState start_state, PlanningState final_state, double planning_time)
+void TrajectoryPlanner::IncrementPlanningTimeStep()
 {
-    
-    QuinticPolynomial result_polynomial;
-    result_polynomial.a0 = start_state.position;
-    result_polynomial.a1 = start_state.position_dot;
-    result_polynomial.a2 = 0.5 * start_state.position_dot_dot;
-    //some temporary variables to make solving the equation more easy
-    double temp_C1 = start_state.position + start_state.position_dot * planning_time + 0.5 * start_state.position_dot_dot * planning_time * planning_time;
-    double temp_C2 = start_state.position_dot + 0.5 * start_state.position_dot_dot * planning_time * planning_time;
-    double temp_C3 = start_state.position_dot_dot;
-    //Create linear quation system of form Ax = b
-    Eigen::VectorXd lin_equation_sys_b = Eigen::VectorXd(3);
-    lin_equation_sys_b << (final_state.position - temp_C1), (final_state.position_dot - temp_C2), (final_state.position_dot_dot - temp_C3);
-    //make sure the X.inverse() matrix is in the correct shape
-    SetQuinticTimeMatrix_inverse(planning_time);
-    Eigen::VectorXd lin_equation_sys_x = Eigen::VectorXd(3);
-    //Solve linear equation system x = A.inverse * b
-    lin_equation_sys_x = quintic_time_matrix_inverse_ * lin_equation_sys_b;
-    result_polynomial.a3 = lin_equation_sys_x(0);
-    result_polynomial.a4 = lin_equation_sys_x(1);
-    result_polynomial.a5 = lin_equation_sys_x(2);
-    return result_polynomial;
-}
-
-void TrajectoryPlanner::SetQuinticTimeMatrix_inverse(double planning_time)
-{
-    if(planning_time != current_quintic_planning_time_)
+    if(current_planning_timestep_ >= CONFIGURATION::num_trajectory_points)
     {
-        double& T = planning_time;
-        current_quintic_planning_time_ = T;
-        quintic_time_matrix_(0,0) = T * T * T;
-        quintic_time_matrix_(0,1) = T * T * T * T;
-        quintic_time_matrix_(0,2) = T * T * T * T * T;
-        quintic_time_matrix_(1,0) = 3.0 * T * T;
-        quintic_time_matrix_(1,1) = 4.0 * T * T * T;
-        quintic_time_matrix_(1,2) = 5.0 * T * T * T * T;
-        quintic_time_matrix_(2,0) = 6 * T;
-        quintic_time_matrix_(2,1) = 12 * T * T;
-        quintic_time_matrix_(2,2) = 20 * T * T * T;
-        quintic_time_matrix_inverse_ = quintic_time_matrix_.inverse();
+        current_planning_timestep_ = 0;
+        return;
     }
+    current_planning_timestep_++;
 }
 
-
-
-QuarticPolynomial TrajectoryPlanner::CalculateQuarticPolynomialCoefficients(PlanningState start_state, PlanningState final_state, double planning_time)
+void TrajectoryPlanner::SetManeuverRequest(Maneuver requested_maneuver)
 {
-    QuarticPolynomial result_polynomial;
-    result_polynomial.a0 = start_state.position;
-    result_polynomial.a1 = start_state.position_dot;
-    result_polynomial.a2 = start_state.position_dot_dot;
+    if(requested_maneuver == current_maneuver_)
+    {
+        return;
+    }
     
-    double& T = planning_time;
-    
-    //set up Ax + b and solve
-    Eigen::MatrixXd time_matrix = Eigen::MatrixXd(2,2);
-    time_matrix << 3*T*T, 4*T*T*T*T,
-    6*T, 12*T*T;
-    
-    Eigen::VectorXd b = Eigen::VectorXd(2);
-    b << final_state.position_dot - result_polynomial.a1 - 2*result_polynomial.a2*T ,
-    final_state.position_dot_dot - 2 * result_polynomial.a2;
-    
-    
-    Eigen::VectorXd x = Eigen::VectorXd(2);
-    x = time_matrix.inverse() * b;
-    
-    result_polynomial.a3 = b(0);
-    result_polynomial.a4 = b(1);
-    return  result_polynomial;
+    current_planning_timestep_ = -1;
+    current_maneuver_ = requested_maneuver;
 }
 
 

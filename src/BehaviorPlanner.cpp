@@ -34,6 +34,7 @@ void BehaviorPlanner::runStateMachine()
     switch (current_state_) {
         case ManeuverKeepLane:
             std::cout << "ManeuverKeepLane" << '\n';
+            
             //if follow
             //if slower then our speed we would like do a lane change (preferably left (as long as we are not on th leftmost lane, else right)
             
@@ -85,4 +86,9 @@ void BehaviorPlanner::runManeuverKeepLane()
     //Close enough, FOLLOW (TODO: technically we could only overtake left)
     //If speed is above our target speed, keep following
     //Else, prepare lane change, if we where enough steps in Keep lane
+}
+
+Maneuver BehaviorPlanner::GetCurrentManeuver()
+{
+    return current_state_;
 }

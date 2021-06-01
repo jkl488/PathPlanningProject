@@ -44,11 +44,14 @@ void HighwayPlanner::step()
         std::cout << "ERROR: Highway planner is not properly initialized..." << '\n';
         return;
     }
+    //Predict objects movements
     object_prediction_.predictObjectTrajectories();
+    //run the behavior state machine and generate requested maneuver
     behavior_planner_.step();
+    //transmit requested maneuver to trajectory planning
+    trajectory_planner_.SetManeuverRequest(behavior_planner_.GetCurrentManeuver());
+    //run trajectory planning to generate a trajectory for the current requested maneuver
     trajectory_planner_.step();
-    //prediction.step();
-    //trajectory_planner_.step(); //should get previous path and predictions
     
     
 //     1. try to understand the communication and its signals
@@ -60,17 +63,6 @@ void HighwayPlanner::step()
 //     4. Improve your lane change decision making by setting up a cost function
 //
 //     5. refine the cost function
-     
-    //road model
-    //previous path
-    
-    //run pocessing if needed
-    //run behavior planning
-    //run trajectory planning
-
-    
-    
- 
 }
 
 void HighwayPlanner::setMap(std::vector<double> waypoints_x, std::vector<double> waypoints_y, std::vector<double> waypoints_s, std::vector<double> waypoints_dx, std::vector<double> waypoints_dy)

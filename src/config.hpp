@@ -13,7 +13,7 @@ namespace CONFIGURATION {
 //>>>>>TRAJECTORY PLANNING<<<<<
 constexpr unsigned int num_trajectory_points = 50;
 constexpr double delta_t_trajectory_points = 0.02;
-constexpr double trajectory_planning_time_total = 0.02;
+constexpr double trajectory_planning_time_total = 6.0;
 constexpr double speed_limit_m_s = 49.5 * (0,44704); // 50 is the real speed limit, the factor converts to m/s
 constexpr double max_jerk = 9.25;//10.0; //m/s^3
 constexpr double maximum_accelearion = 9.25;// = 10; //m/s^2

@@ -19,6 +19,7 @@ public:
     ~BehaviorPlanner();
     void init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list, std::shared_ptr<WaypointMap> global_map);
     void step();
+    Maneuver GetCurrentManeuver();
     
 private:
     bool is_initialized_ = false;

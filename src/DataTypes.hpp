@@ -94,23 +94,30 @@ struct QuinticPolynomial
     double a3;
     double a4;
     double a5;
+};
+
+struct QuinticPolynomialTrajectory
+{
+    QuinticPolynomial polynomial;
+    double max_planning_time;
     
-    double GetValue(double time)
+    double GetPosition(double time) const
     {
-        return a0 + a1 * time + a2 * time * time + a3 * time * time * time + a4 * time * time * time * time + a5 * time * time * time * time * time;
+        return polynomial.a0 + polynomial.a1 * time + polynomial.a2 * time * time + polynomial.a3 * time * time * time + polynomial.a4 * time * time * time * time + polynomial.a5 * time * time * time * time * time;
     }
-    double GetDotValue(double time)
+    double GetVelocity(double time) const
     {
-        return a1 + 2.0 *  a2 * time +  3.0 * a3 * time * time + 4.0 *  a4 * time * time * time + 5.0 *  a5 * time * time * time * time;
+        return polynomial.a1 + 2.0 *  polynomial.a2 * time +  3.0 * polynomial.a3 * time * time + 4.0 *  polynomial.a4 * time * time * time + 5.0 *  polynomial.a5 * time * time * time * time;
     }
-    double GetDotDotValue(double time)
+    double GetAcceleration(double time) const
     {
-        return 2.0 * a2 + 6.0 * a3 * time + 12.0 * a4 * time * time + 20.0 * a5 * time * time * time;
+        return 2.0 * polynomial.a2 + 6.0 * polynomial.a3 * time + 12.0 * polynomial.a4 * time * time + 20.0 * polynomial.a5 * time * time * time;
     }
-    double GetDotDotDotValue(double time)
+    double GetJerk(double time) const
     {
-        return 6.0 * a3 + 24.0 * a4 * time + 60.0 * a5 * time * time;
+        return 6.0 * polynomial.a3 + 24.0 * polynomial.a4 * time + 60.0 * polynomial.a5 * time * time;
     }
+    
 };
 
 //Polynomial coefficients of a fourth order polynomial
@@ -121,22 +128,28 @@ struct QuarticPolynomial
     double a2;
     double a3;
     double a4;
+};
+
+struct QuarticPolynomialTrajectory
+{
+    QuarticPolynomial polynomial;
+    double max_planning_time;
     
-    double GetValue(double time)
+    double GetPosition(double time) const
     {
-        return a0 + a1 * time + a2 * time * time + a3 * time * time * time + a4 * time * time * time * time;
+        return polynomial.a0 + polynomial.a1 * time + polynomial.a2 * time * time + polynomial.a3 * time * time * time + polynomial.a4 * time * time * time * time;
     }
-    double GetDotValue(double time)
+    double GetVelocity(double time) const
     {
-        return a1 + 2.0 *  a2 * time +  3.0 * a3 * time * time + 4.0 *  a4 * time * time * time;
+        return polynomial.a1 + 2.0 *  polynomial.a2 * time +  3.0 * polynomial.a3 * time * time + 4.0 *  polynomial.a4 * time * time * time;
     }
-    double GetDotDotValue(double time)
+    double GetAcceleration(double time) const
     {
-        return 2.0 * a2 + 6.0 * a3 * time + 12.0 * a4 * time * time;
+        return 2.0 * polynomial.a2 + 6.0 * polynomial.a3 * time + 12.0 * polynomial.a4 * time * time;
     }
-    double GetDotDotDotValue(double time)
+    double GetJerk(double time) const
     {
-        return 6.0 * a3 + 24.0 * a4 * time;
+        return 6.0 * polynomial.a3 + 24.0 * polynomial.a4 * time;
     }
     
 };
@@ -158,18 +171,22 @@ struct GoalState
 
 struct TrajectoryPoint
 {
-    Vector2d position;
-    Vector2d velocity;
-    Vector2d acceleration;
+    //Vector2d position;
+    double position{0.0};
+    double position_dot{0.0};
+    double position_dot_dot{0.0};
+    double position_dot_dot_dot{0.0};
+    /*double d{0.0};
+    double d_dot{0.0};
+    double d_dot_dot{0.0};
+    double d_dot_dot_dot{0.0};*/
     double time{0.0};
-    double heading;
-    double curvature;
+    double cost;
 };
 
 struct DiscretizedTrajectory
 {
-    GoalCoordianteList outputTrajectoryCombined;
-    std::vector<TrajectoryPoint> combinedExtendedTrajectoryData;
+    std::vector<TrajectoryPoint> points;
 };
 
 struct ObjectPath
