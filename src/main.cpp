@@ -114,6 +114,9 @@ int main() {
           //   of the road.
 
             //vector<vector<double>>
+            //vector<vector<double>> sensor_fusion = j[1]["sensor_fusion"].get<vector<vector<double>>>();
+            
+            
             auto& sensor_fusion = j[1]["sensor_fusion"];
             for(int i = 0; i < sensor_fusion.size(); ++i)
             {

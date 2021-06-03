@@ -59,6 +59,10 @@ void HighwayPlanner::step()
     //run trajectory planning to generate a trajectory for the current requested maneuver
     trajectory_planner_.step();
     
+    //pre calculate all time inverse matrices for quintic
+    
+    
+    
     
 //     1. try to understand the communication and its signals
 //
@@ -105,17 +109,19 @@ void HighwayPlanner::setVehiclePose(double x, double y, double s, double d, doub
     }
     else
     {
-        double s_diff = (vehicle_pose_ptr_->position_s-vehicle_pose_ptr_->previous_position_s);
+        double s_diff = (vehicle_pose_ptr_->position_s - vehicle_pose_ptr_->previous_position_s);
         vehicle_pose_ptr_->previous_position_s = vehicle_pose_ptr_->position_s;
         std::cout << "s_diff: " << s_diff << std::endl;
         
+        double s_dot = s_diff/time_travelled;
         
-        vehicle_pose_ptr_->position_s_dot = s_diff/time_travelled;
-        vehicle_pose_ptr_->position_s_dot_dot = (vehicle_pose_ptr_->position_s_dot - vehicle_pose_ptr_->position_s_dot)/time_travelled;
+        vehicle_pose_ptr_->position_s_dot_dot = (vehicle_pose_ptr_->position_s_dot - s_dot)/time_travelled;
+        vehicle_pose_ptr_->position_s_dot = s_dot;
         
-        vehicle_pose_ptr_->position_d_dot = (vehicle_pose_ptr_->position_d-vehicle_pose_ptr_->previous_position_d)/time_travelled;
+        double d_dot = (vehicle_pose_ptr_->position_d-vehicle_pose_ptr_->previous_position_d)/time_travelled;
         vehicle_pose_ptr_->previous_position_d = vehicle_pose_ptr_->position_d;
-        vehicle_pose_ptr_->position_d_dot_dot = (vehicle_pose_ptr_->position_d_dot-vehicle_pose_ptr_->position_d_dot)/time_travelled;
+        vehicle_pose_ptr_->position_d_dot_dot = (d_dot-vehicle_pose_ptr_->position_d_dot)/time_travelled;
+        vehicle_pose_ptr_->position_d_dot = d_dot;
     }
 
     //Assign lane
