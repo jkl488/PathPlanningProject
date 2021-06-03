@@ -50,24 +50,24 @@ QuarticPolynomial PolynomialSolver::CalculateQuarticPolynomialCoefficients(Plann
     QuarticPolynomial result_polynomial;
     result_polynomial.a0 = start_state.position;
     result_polynomial.a1 = start_state.position_dot;
-    result_polynomial.a2 = start_state.position_dot_dot;
+    result_polynomial.a2 = start_state.position_dot_dot ;
     
     double& T = planning_time;
     
     //set up Ax + b and solve
     Eigen::MatrixXd time_matrix = Eigen::MatrixXd(2,2);
-    time_matrix << 3*T*T, 4*T*T*T*T,
+    time_matrix << 3*T*T, 4*T*T*T,
     6*T, 12*T*T;
     
     Eigen::VectorXd b = Eigen::VectorXd(2);
     b << final_state.position_dot - result_polynomial.a1 - 2*result_polynomial.a2*T ,
-    final_state.position_dot_dot - 2 * result_polynomial.a2;
+    final_state.position_dot_dot - 2*result_polynomial.a2;
     
     
     Eigen::VectorXd x = Eigen::VectorXd(2);
     x = time_matrix.inverse() * b;
     
-    result_polynomial.a3 = b(0);
-    result_polynomial.a4 = b(1);
+    result_polynomial.a3 = x(0);
+    result_polynomial.a4 = x(1);
     return  result_polynomial;
 }

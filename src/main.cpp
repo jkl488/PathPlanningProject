@@ -46,7 +46,6 @@ int main() {
     iss >> s;
     iss >> d_x;
     iss >> d_y;
-      std::cout << x <<", " << y << std::endl;
     map_waypoints_x.push_back(x);
     map_waypoints_y.push_back(y);
     map_waypoints_s.push_back(s);
@@ -106,13 +105,16 @@ int main() {
                 previous_path.planned_coordinates_cartesian.next_x_vals.push_back(previous_path_x[i]);
                 previous_path.planned_coordinates_cartesian.next_y_vals.push_back(previous_path_y[i]);
             }
+            highway_planner.setPreviousPath(previous_path);
             // Main car's localization Data
-              highway_planner.setVehiclePose(j[1]["x"], j[1]["y"], j[1]["s"], j[1]["d"], j[1]["yaw"], j[1]["speed"],previous_path_x.size());
+              highway_planner.setVehiclePose(j[1]["x"], j[1]["y"], j[1]["s"], j[1]["d"], j[1]["yaw"], j[1]["speed"],previous_path.planned_coordinates_cartesian.next_x_vals.size());
 
 
           // Sensor Fusion Data, a list of all other cars on the same side 
           //   of the road.
-          auto& sensor_fusion = j[1]["sensor_fusion"];
+
+            //vector<vector<double>>
+            auto& sensor_fusion = j[1]["sensor_fusion"];
             for(int i = 0; i < sensor_fusion.size(); ++i)
             {
                 if(i<12)
@@ -132,8 +134,8 @@ int main() {
 
 
             
-          msgJson["next_x"] = highway_planner.GetOutputPath().next_x_vals;
-          msgJson["next_y"] = highway_planner.GetOutputPath().next_y_vals;
+          msgJson["next_x"] = highway_planner.getOutputPath().next_x_vals;
+          msgJson["next_y"] = highway_planner.getOutputPath().next_y_vals;
 
           auto msg = "42[\"control\","+ msgJson.dump()+"]";
 

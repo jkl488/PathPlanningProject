@@ -41,9 +41,11 @@ struct WaypointMap
 struct VehiclePose {
     Vector2d position;
     double position_s{0.0};
+    double previous_position_s{0.0};
     double position_s_dot{0.0};
     double position_s_dot_dot{0.0};
     double position_d{0.0};
+    double previous_position_d{0.0};
     double position_d_dot{0.0};
     double position_d_dot_dot{0.0};
     double heading{0.0};
@@ -84,6 +86,17 @@ struct OutputPath
     double end_path_d;
 };
 
+enum TrajectoryType : unsigned int
+{
+    VelocityKeeping = 0
+    
+//    Follow
+//    LaneChange
+//    Merge
+    
+};
+
+typedef enum TrajectoryType TrajectoryType;
 
 //Polynomial coefficients of a fifth order polynomial
 struct QuinticPolynomial
@@ -100,6 +113,7 @@ struct QuinticPolynomialTrajectory
 {
     QuinticPolynomial polynomial;
     double max_planning_time;
+    TrajectoryType trajectory_type;
     
     double GetPosition(double time) const
     {
@@ -134,6 +148,7 @@ struct QuarticPolynomialTrajectory
 {
     QuarticPolynomial polynomial;
     double max_planning_time;
+    TrajectoryType trajectory_type;
     
     double GetPosition(double time) const
     {
@@ -141,7 +156,7 @@ struct QuarticPolynomialTrajectory
     }
     double GetVelocity(double time) const
     {
-        return polynomial.a1 + 2.0 *  polynomial.a2 * time +  3.0 * polynomial.a3 * time * time + 4.0 *  polynomial.a4 * time * time * time;
+        return polynomial.a1 + 2.0 * polynomial.a2 * time + 3.0 * polynomial.a3 * time * time + 4.0 * polynomial.a4 * time * time * time;
     }
     double GetAcceleration(double time) const
     {
@@ -168,7 +183,6 @@ struct GoalState
     PlanningState longitudinal;
 };
 
-
 struct TrajectoryPoint
 {
     //Vector2d position;
@@ -176,10 +190,6 @@ struct TrajectoryPoint
     double position_dot{0.0};
     double position_dot_dot{0.0};
     double position_dot_dot_dot{0.0};
-    /*double d{0.0};
-    double d_dot{0.0};
-    double d_dot_dot{0.0};
-    double d_dot_dot_dot{0.0};*/
     double time{0.0};
     double cost;
 };
@@ -187,11 +197,15 @@ struct TrajectoryPoint
 struct DiscretizedTrajectory
 {
     std::vector<TrajectoryPoint> points;
+    TrajectoryType trajectory_type;
+    bool exceeds_jerk_limit = false;
+    bool exceeds_acceleration_limit = false;
+    double score{0.0};
 };
 
 struct ObjectPath
 {
-    std::array<Vector2d,50> predicted_positions;
+    std::array<Vector2d,CONFIGURATION::num_trajectory_points> predicted_positions;
 };
 
 //Defining the states the state machine can be in

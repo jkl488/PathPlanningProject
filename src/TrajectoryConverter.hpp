@@ -19,7 +19,10 @@ public:
 
     static DiscretizedTrajectory DiscretizeQuinticPolynomialTrajectory(const QuinticPolynomialTrajectory& polynomial_trajectory);
     
+    static double ScoreTrajectory(const DiscretizedTrajectory& trajectory, const QuarticPolynomialTrajectory& polynomial_trajectory, const PlanningState& goal);
+    
 private:
+    
     
 };
 

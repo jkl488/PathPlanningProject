@@ -28,7 +28,8 @@ public:
     void setVehiclePose(double x, double y, double s, double d, double heading, double speed, int num_previous_path_left);
     void setObjectToIndex(int index, unsigned int id, double pos_x, double pos_y, double vx, double vy, double s, double d);
     void clearObjectList();
-    GoalCoordianteList GetOutputPath();
+    GoalCoordianteList getOutputPath();
+    void setPreviousPath(OutputPath previous_path);
     
 private:
     TrajectoryPlanner trajectory_planner_;
@@ -40,6 +41,7 @@ private:
     std::shared_ptr<OutputPath> output_path_ptr_ = nullptr;
     std::shared_ptr<WaypointMap> global_map_ptr_ = nullptr;
     std::shared_ptr<OutputPath> previous_path_ptr_ = nullptr;
+    long long cycle_counter_{0};
     
     
 };
