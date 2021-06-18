@@ -10,15 +10,27 @@
 
 #include <stdio.h>
 #include "DataTypes.hpp"
+#include "Map.hpp"
 
 class TrajectoryPlanner
 {
     
 public:
-    void init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list , std::shared_ptr<WaypointMap> global_map,std::shared_ptr<OutputPath> output_path, std::shared_ptr<OutputPath> previous_path);
-    void step();
+    TrajectoryPlanner() = default;
+    ~TrajectoryPlanner() = default;
+    TrajectoryPlanner(const TrajectoryPlanner& rhs) = default;
+    TrajectoryPlanner& operator= (const TrajectoryPlanner& rhs) = default;
+    TrajectoryPlanner(TrajectoryPlanner&& rhs) = default;
+    TrajectoryPlanner& operator= (TrajectoryPlanner&& rhs) = default;
+    
+    void Init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list , std::shared_ptr<Map> global_map,std::shared_ptr<OutputPath> output_path, std::shared_ptr<OutputPath> previous_path);
+    void Step();
     //Set the maneuver which the trajectories should be planned for
     void SetManeuverRequest(Maneuver requested_maneuver);
+    DiscretizedTrajectory GetLongitudinalTrajectory();
+    DiscretizedTrajectory GetLateralTrajectory();
+    
+    
 private:
     //Current pose of the vehicle in the world -INPUT
     std::shared_ptr<VehiclePose> vehicle_pose_ptr_ = nullptr;
@@ -29,7 +41,12 @@ private:
     //Path received to the simulator, with unused points -INPUT
     std::shared_ptr<OutputPath> previous_path_ptr_ = nullptr;
     //Global mal waypoints. needed for the conversion of the frames
-    std::shared_ptr<WaypointMap> global_map_ptr_ = nullptr;
+    std::shared_ptr<Map> global_map_ptr_ = nullptr;
+    
+    DiscretizedTrajectory trajectory_longitudinal_;
+    DiscretizedTrajectory trajectory_lateral_;
+    
+
     
     
     

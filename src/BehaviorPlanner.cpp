@@ -7,12 +7,8 @@
 
 #include "BehaviorPlanner.hpp"
 #include <iostream>
-BehaviorPlanner::BehaviorPlanner()
-{}
-BehaviorPlanner::~BehaviorPlanner()
-{}
 
-void BehaviorPlanner::init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list , std::shared_ptr<WaypointMap> global_map)
+void BehaviorPlanner::Init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list , std::shared_ptr<Map> global_map)
 {
     vehicle_pose_ptr_ = vehicle_pose;
     object_list_ptr_ = object_list;
@@ -21,7 +17,7 @@ void BehaviorPlanner::init(std::shared_ptr<VehiclePose> vehicle_pose, std::share
     current_state_ = ManeuverKeepLane; //could also be init, but not yet needed
 }
 
-void BehaviorPlanner::step()
+void BehaviorPlanner::Step()
 {
     runStateMachine();
     

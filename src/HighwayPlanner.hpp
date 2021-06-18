@@ -14,22 +14,28 @@
 #include "DataTypes.hpp"
 #include "ObjectPrediction.hpp"
 #include "config.hpp"
+#include "Map.hpp"
 
 
 class HighwayPlanner{
     
 public:
     HighwayPlanner();
-    ~HighwayPlanner();
-    void init();
-    void step();
-    //void shutdown();
-    void setMap(std::vector<double> waypoints_x, std::vector<double> waypoints_y, std::vector<double> waypoints_s,std::vector<double> waypoints_dx, std::vector<double> waypoints_dy);
-    void setVehiclePose(double x, double y, double s, double d, double heading, double speed, int num_previous_path_left);
-    void setObjectToIndex(int index, unsigned int id, double pos_x, double pos_y, double vx, double vy, double s, double d);
-    void clearObjectList();
-    GoalCoordianteList getOutputPath();
-    void setPreviousPath(OutputPath previous_path);
+    ~HighwayPlanner()= default;
+    //default copy behavior
+    HighwayPlanner(const HighwayPlanner& rhs) = default;
+    HighwayPlanner& operator= (const HighwayPlanner& rhs) = default;
+    //default move behavior
+    HighwayPlanner(HighwayPlanner&& rhs) = default;
+    HighwayPlanner& operator= ( HighwayPlanner&& rhs) = default;
+    
+    void Init();
+    void Step();
+    void SetMap(const Map& highway_map);
+    void SetVehiclePose(double x, double y, double s, double d, double heading, double speed, int num_previous_path_left);
+    GoalCoordianteList GetOutputPath();
+    void SetPreviousPath(OutputPath previous_path);
+    void InsertObjects(std::vector<std::vector<double>> sensor_fusion);
     
 private:
     TrajectoryPlanner trajectory_planner_;
@@ -39,7 +45,7 @@ private:
     std::shared_ptr<VehiclePose> vehicle_pose_ptr_ = nullptr;
     std::shared_ptr<ObjectList> object_list_ptr_ = nullptr;
     std::shared_ptr<OutputPath> output_path_ptr_ = nullptr;
-    std::shared_ptr<WaypointMap> global_map_ptr_ = nullptr;
+    std::shared_ptr<Map> global_map_ptr_ = nullptr;
     std::shared_ptr<OutputPath> previous_path_ptr_ = nullptr;
     long long cycle_counter_{0};
     

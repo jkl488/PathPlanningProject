@@ -15,9 +15,19 @@
 class Prediction
 {
 public:
+    Prediction() = default;
+    ~Prediction()= default;
+    //default copy behavior
+    Prediction(const Prediction& rhs) = default;
+    Prediction& operator= (const Prediction& rhs) = default;
+    //default move behavior
+    Prediction(Prediction&& rhs) = default;
+    Prediction& operator= ( Prediction&& rhs) = default;
+    
+    
     //Prediction(std::shared_ptr<ObjectList> object_list);
-    void init(std::shared_ptr<ObjectList> object_list);
-    void predictObjectTrajectories();
+    void Init(std::shared_ptr<ObjectList> object_list);
+    void PredictObjectTrajectories();
     
 private:
     std::shared_ptr<ObjectList> object_list_ptr_ = nullptr;

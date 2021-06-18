@@ -10,15 +10,22 @@
 
 #include <stdio.h>
 #include "DataTypes.hpp"
+#include "Map.hpp"
 
 
 class BehaviorPlanner
 {
 public:
-    BehaviorPlanner();
-    ~BehaviorPlanner();
-    void init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list, std::shared_ptr<WaypointMap> global_map);
-    void step();
+    BehaviorPlanner() = default;
+    ~BehaviorPlanner() = default;
+    BehaviorPlanner(const BehaviorPlanner& rhs) = default;
+    BehaviorPlanner& operator= (const BehaviorPlanner& rhs) = default;
+    BehaviorPlanner(BehaviorPlanner&& rhs) = default;
+    BehaviorPlanner& operator= (BehaviorPlanner&& rhs) = default;
+    
+    
+    void Init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list, std::shared_ptr<Map> global_map);
+    void Step();
     Maneuver GetCurrentManeuver();
     
 private:
@@ -26,7 +33,7 @@ private:
     std::shared_ptr<VehiclePose> vehicle_pose_ptr_ = nullptr;
     std::shared_ptr<ObjectList> object_list_ptr_ = nullptr;
     std::shared_ptr<OutputPath> output_path_ptr_ = nullptr;
-    std::shared_ptr<WaypointMap> global_map_ptr_ = nullptr;
+    std::shared_ptr<Map> global_map_ptr_ = nullptr;
 
 
     GoalState current_goal_;

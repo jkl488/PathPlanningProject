@@ -20,25 +20,23 @@ HighwayPlanner::HighwayPlanner()
     object_list_ptr_ = std::make_shared<ObjectList>();
     output_path_ptr_ = std::make_shared<OutputPath>();
     previous_path_ptr_ = std::make_shared<OutputPath>();
-    global_map_ptr_ = std::make_shared<WaypointMap>();
+    global_map_ptr_ = std::make_shared<Map>();
     
 }
 
-HighwayPlanner::~HighwayPlanner()
-{}
 
-void HighwayPlanner::init()
+void HighwayPlanner::Init()
 {
     if(vehicle_pose_ptr_ && object_list_ptr_ && output_path_ptr_ && global_map_ptr_&&previous_path_ptr_)
     {
         is_initialized_ = true;
-        behavior_planner_.init(vehicle_pose_ptr_, object_list_ptr_, global_map_ptr_);
-        trajectory_planner_.init(vehicle_pose_ptr_, object_list_ptr_, global_map_ptr_, output_path_ptr_,previous_path_ptr_);
-        object_prediction_.init(object_list_ptr_);
+        behavior_planner_.Init(vehicle_pose_ptr_, object_list_ptr_, global_map_ptr_);
+        trajectory_planner_.Init(vehicle_pose_ptr_, object_list_ptr_, global_map_ptr_, output_path_ptr_,previous_path_ptr_);
+        object_prediction_.Init(object_list_ptr_);
     }
     
 }
-void HighwayPlanner::step()
+void HighwayPlanner::Step()
 {
     if(!is_initialized_)
     {
@@ -51,13 +49,13 @@ void HighwayPlanner::step()
     }
     cycle_counter_++;
     //Predict objects movements
-    object_prediction_.predictObjectTrajectories();
+    object_prediction_.PredictObjectTrajectories();
     //run the behavior state machine and generate requested maneuver
-    behavior_planner_.step();
+    behavior_planner_.Step();
     //transmit requested maneuver to trajectory planning
     trajectory_planner_.SetManeuverRequest(behavior_planner_.GetCurrentManeuver());
     //run trajectory planning to generate a trajectory for the current requested maneuver
-    trajectory_planner_.step();
+    trajectory_planner_.Step();
     
     //pre calculate all time inverse matrices for quintic
     
@@ -75,12 +73,12 @@ void HighwayPlanner::step()
 //     5. refine the cost function
 }
 
-void HighwayPlanner::setMap(std::vector<double> waypoints_x, std::vector<double> waypoints_y, std::vector<double> waypoints_s, std::vector<double> waypoints_dx, std::vector<double> waypoints_dy)
+void HighwayPlanner::SetMap(const Map& highway_map)
 {
-    global_map_ptr_ = std::make_shared<WaypointMap>(std::move(WaypointMap{waypoints_x,waypoints_y,waypoints_s,waypoints_dx,waypoints_dy}));
+    global_map_ptr_ = std::make_shared<Map>(highway_map);
 }
 
-void HighwayPlanner::setVehiclePose(double x, double y, double s, double d, double heading, double speed, int num_previous_path_left)
+void HighwayPlanner::SetVehiclePose(double x, double y, double s, double d, double heading, double speed, int num_previous_path_left)
 {
     if(!vehicle_pose_ptr_)
     {
@@ -109,17 +107,20 @@ void HighwayPlanner::setVehiclePose(double x, double y, double s, double d, doub
     }
     else
     {
-        double s_diff = (vehicle_pose_ptr_->position_s - vehicle_pose_ptr_->previous_position_s);
+        //(current_s - previous_s)/time_travelled
+        double s_dot = this->trajectory_planner_.GetLongitudinalTrajectory().points.at(steps_travelled-1).position_dot;
+        //double s_dot = ((vehicle_pose_ptr_->position_s - vehicle_pose_ptr_->previous_position_s))/time_travelled;
         vehicle_pose_ptr_->previous_position_s = vehicle_pose_ptr_->position_s;
-        std::cout << "s_diff: " << s_diff << std::endl;
-        
-        double s_dot = s_diff/time_travelled;
-        
+        //(current_s_dot - previous_s_dot)/time_travelled
         vehicle_pose_ptr_->position_s_dot_dot = (vehicle_pose_ptr_->position_s_dot - s_dot)/time_travelled;
         vehicle_pose_ptr_->position_s_dot = s_dot;
+        //(current_d - previous_d)/time_travelled
         
-        double d_dot = (vehicle_pose_ptr_->position_d-vehicle_pose_ptr_->previous_position_d)/time_travelled;
+        
+        double d_dot = this->trajectory_planner_.GetLateralTrajectory().points.at(steps_travelled-1).position_dot;
+        //double d_dot = (vehicle_pose_ptr_->position_d-vehicle_pose_ptr_->previous_position_d)/time_travelled;
         vehicle_pose_ptr_->previous_position_d = vehicle_pose_ptr_->position_d;
+        //(current_d_dot - previous_d_dot)/time_travelled
         vehicle_pose_ptr_->position_d_dot_dot = (d_dot-vehicle_pose_ptr_->position_d_dot)/time_travelled;
         vehicle_pose_ptr_->position_d_dot = d_dot;
     }
@@ -142,55 +143,83 @@ void HighwayPlanner::setVehiclePose(double x, double y, double s, double d, doub
     std::cout << "setVehiclePose: Current s_dot_Dot: " << vehicle_pose_ptr_->position_s_dot_dot << '\n';
 }
 
-void HighwayPlanner::setObjectToIndex(int index, unsigned int id, double pos_x, double pos_y, double vx, double vy, double s, double d)
+void HighwayPlanner::InsertObjects(std::vector<std::vector<double>> sensor_fusion)
 {
     if(!object_list_ptr_)
     {
         std::cout << "ERROR: object_list_ is nullptr!" << '\n';
     }
-    //assign lane
-    unsigned int lane_assignment;
-    if(d > CONFIGURATION::left_lane_lower_limit && d <= CONFIGURATION::left_lane_upper_limit)
-    {lane_assignment = 0;}
-    else if(d > CONFIGURATION::middle_lane_lower_limit && d <= CONFIGURATION::middle_lane_upper_limit)
-    {lane_assignment = 1;}
-    else if(d > CONFIGURATION::right_lane_lower_limit && d <= CONFIGURATION::right_lane_upper_limit)
-    {lane_assignment = 2;}
-    
-    //Create bounding circle
-    Circle bounding_circle{s,d,CONFIGURATION::object_bounding_circle_radius};
-
-    //get heading
-    double heading = std::atan2(vy, vx);//TODO: verify
-    object_list_ptr_->objects.at(index) = std::move(Object{id,pos_x,pos_y,vx,vy,s,d,lane_assignment,heading,bounding_circle});
-}
-
-void HighwayPlanner::clearObjectList()
-{
-    if(!object_list_ptr_)
+    for(int i = 0; i < sensor_fusion.size(); ++i)
     {
-        std::cout << "ERROR: object_list_ is nullptr!" << '\n';
-        return;
+        if(i<12)
+        {
+            unsigned int id = static_cast<unsigned int>(sensor_fusion[i][0]);
+            double& pos_x = sensor_fusion[i][1];
+            double& pos_y = sensor_fusion[i][2];
+            double& vx = sensor_fusion[i][3];
+            double& vy = sensor_fusion[i][4];
+            double& s = sensor_fusion[i][5];
+            double& d = sensor_fusion[i][6];
+            
+            //assign lane
+            unsigned int lane_assignment;
+            if(d > CONFIGURATION::left_lane_lower_limit && d <= CONFIGURATION::left_lane_upper_limit)
+            {lane_assignment = 0;}
+            else if(d > CONFIGURATION::middle_lane_lower_limit && d <= CONFIGURATION::middle_lane_upper_limit)
+            {lane_assignment = 1;}
+            else if(d > CONFIGURATION::right_lane_lower_limit && d <= CONFIGURATION::right_lane_upper_limit)
+            {lane_assignment = 2;}
+            
+            //Create bounding circle
+            Circle bounding_circle{s,d,CONFIGURATION::object_bounding_circle_radius};
+
+            //get heading
+            double heading = std::atan2(vy, vx);//TODO: verify
+            object_list_ptr_->objects.at(i) = std::move(Object{id,pos_x,pos_y,vx,vy,s,d,lane_assignment,heading,bounding_circle});
+        
+            
+        }
+        else{std::cout << "ERROR: Objects array out of range..."<<'\n';}
     }
-    unsigned int id;
-    Vector2d empty{0.0,0.0};
-    Vector2d velocity;
-    double position_s;
-    double position_d;
-    unsigned int lane_assignment;
-    double heading;
-    Circle empty_circle{position_s,position_s,0.0};
     
-    Object empty_object{255,empty,empty,0.0,0.0,255,0.0,empty_circle};
-    
-    for(Object& obj : object_list_ptr_->objects)
-    {
-        obj = empty_object;
-    }
 }
 
 
-GoalCoordianteList HighwayPlanner::getOutputPath()
+//void HighwayPlanner::setObjectToIndex(int index, unsigned int id, double pos_x, double pos_y, double vx, double vy, double s, double d)
+//{
+//    if(!object_list_ptr_)
+//    {
+//        std::cout << "ERROR: object_list_ is nullptr!" << '\n';
+//    }
+//
+//}
+
+//void HighwayPlanner::clearObjectList()
+//{
+//    if(!object_list_ptr_)
+//    {
+//        std::cout << "ERROR: object_list_ is nullptr!" << '\n';
+//        return;
+//    }
+//    unsigned int id;
+//    Vector2d empty{0.0,0.0};
+//    Vector2d velocity;
+//    double position_s;
+//    double position_d;
+//    unsigned int lane_assignment;
+//    double heading;
+//    Circle empty_circle{position_s,position_s,0.0};
+//    
+//    Object empty_object{255,empty,empty,0.0,0.0,255,0.0,empty_circle};
+//    
+//    for(Object& obj : object_list_ptr_->objects)
+//    {
+//        obj = empty_object;
+//    }
+//}
+
+
+GoalCoordianteList HighwayPlanner::GetOutputPath()
 {
     if(!output_path_ptr_)
     {
@@ -199,7 +228,7 @@ GoalCoordianteList HighwayPlanner::getOutputPath()
     return output_path_ptr_->planned_coordinates_cartesian;
 }
 
-void HighwayPlanner::setPreviousPath(OutputPath previous_path)
+void HighwayPlanner::SetPreviousPath(OutputPath previous_path)
 {
     previous_path_ptr_->planned_coordinates_cartesian.next_x_vals = std::move(previous_path.planned_coordinates_cartesian.next_x_vals);
     previous_path_ptr_->planned_coordinates_cartesian.next_y_vals = std::move(previous_path.planned_coordinates_cartesian.next_y_vals);

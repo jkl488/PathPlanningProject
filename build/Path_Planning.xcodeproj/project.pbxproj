@@ -9,20 +9,20 @@
 /* Begin PBXAggregateTarget section */
 		9A7F96DCF76048A7B046D8E7 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = BE94821343A1497C9241016A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 7488DC48348F4AC68DF6A831 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
 				DDECAFEECA99AD56D79BC76F /* Generate CMakeFiles/ALL_BUILD */,
 			);
 			dependencies = (
-				BCA0EC1B1867480DBD86E0AC /* PBXTargetDependency */,
-				EE4468E7B7BA4BEBAA1CEC4F /* PBXTargetDependency */,
+				658E4C1DD62F46409A799319 /* PBXTargetDependency */,
+				0576B74BFD0F434B91D94FF8 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
 		};
 		F65CAF2ED18F45589F6858EF /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 7550F3563EAF4215974124F4 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 42E8A3D3FFF3417CB2B0E162 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
 				5F75B55B543455DD4029007E /* Generate CMakeFiles/ZERO_CHECK */,
 			);
@@ -34,51 +34,53 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		05F86197C2F4475583DEF22D /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */ = {isa = PBXBuildFile; fileRef = DBF01AB040BD42898EFDD1A4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */; };
-		0B6472C0058144E2BAC2A6E2 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */ = {isa = PBXBuildFile; fileRef = 3E2E30B938D9464080091BB6 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */; };
-		13C9EBF124284E649CC1F765 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = D82628D7630547D19AB9B8B4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */; };
-		1C66C70647214D4091BFE142 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */ = {isa = PBXBuildFile; fileRef = 9D58A7D74B7A4DACA129F40F /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */; };
-		2C544F1CC4124D6CB2FAA24E /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp */ = {isa = PBXBuildFile; fileRef = 9B01717BFC1A4B0AB284AC88 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp */; };
-		2F9171DD66ED4436B73AB592 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp */ = {isa = PBXBuildFile; fileRef = F2B30E356BFA41D9AF9E81AF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp */; };
-		3FFEE31D5FD84F389B29C29B /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp */ = {isa = PBXBuildFile; fileRef = 781BEDB3265643C8A0A50452 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp */; };
-		42F5D25ED6174CF8BEA7CCC8 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.hpp */ = {isa = PBXBuildFile; fileRef = B9CA8EFC634D40108CAEAFDF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.hpp */; };
-		6D5CF5712EFA4625A14A37DE /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/json.hpp */ = {isa = PBXBuildFile; fileRef = EBE3027C68CA42CD9B097072 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/json.hpp */; };
-		72CA868BD6974DC2A8987FCE /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp */ = {isa = PBXBuildFile; fileRef = F66AA8CC80284B1AB1449DAF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp */; };
-		87FF03D530724902948971C0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/spline.h */ = {isa = PBXBuildFile; fileRef = B87E00CCCD7B483291562448 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/spline.h */; };
-		8AE30FA2DFD34E43A46CD079 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/config.hpp */ = {isa = PBXBuildFile; fileRef = 953B26316FFD4932B89033CD /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/config.hpp */; };
-		8DEB1E5F5E474577B32DBABD /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */ = {isa = PBXBuildFile; fileRef = 19A113E97CA5408E9F903185 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */; };
-		94A528205C064A2CA1F9A530 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.hpp */ = {isa = PBXBuildFile; fileRef = A3A8CD7F35BA4B858041AEC4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.hpp */; };
-		976B0991E74A4FC9A265F00B /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp */ = {isa = PBXBuildFile; fileRef = 1520BFC14C584DFD99193850 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp */; };
-		A509F28AFBC24B9A95551877 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */ = {isa = PBXBuildFile; fileRef = F5EC894F2ABD4DCB9606C277 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */; };
-		C5DF02F178204392934433F8 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */ = {isa = PBXBuildFile; fileRef = C4E930A240DD4C70A9ADA10E /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */; };
-		D85B9A999F5648C49DDD5A53 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.hpp */ = {isa = PBXBuildFile; fileRef = 651A70FAF4EE4475ACA8223D /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.hpp */; };
-		E6A940A5C6A14F7EB0E18166 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */ = {isa = PBXBuildFile; fileRef = 094B2ED01D5A4C25855467A2 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */; };
-		F60F28BBFA3246368255CB17 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */ = {isa = PBXBuildFile; fileRef = 770E7F7F3F9248CDAA924955 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */; };
+		06453E7E1A3B4F09B3C1A6DC /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/spline.h */ = {isa = PBXBuildFile; fileRef = ADB7D5BCBFA341F19AB06FE0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/spline.h */; };
+		25B7D3434783481DA2785B71 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */ = {isa = PBXBuildFile; fileRef = 03A58AB840254D3AB06CD6D0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */; };
+		28744FE20DA4479CB87F85AF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp */ = {isa = PBXBuildFile; fileRef = 61B81DCB66B648C2AAE93763 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp */; };
+		2D5212A688D84F828F89A971 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */ = {isa = PBXBuildFile; fileRef = FE3D5124C52D4D3895CE0549 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */; };
+		3EEDC5798BBE46CC82DEC1F4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */ = {isa = PBXBuildFile; fileRef = 50F0B34B6C12468C800F9074 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */; };
+		6FA7FB0D0AA84409BA72DC4D /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp */ = {isa = PBXBuildFile; fileRef = 4E331BC8C11C4493A1414AC4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp */; };
+		72C679260EAA429CBEFBB465 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.hpp */ = {isa = PBXBuildFile; fileRef = 1BBC87B4972F4FB6BF45DFCE /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.hpp */; };
+		79C597E9F77E41A8A40A1234 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/config.hpp */ = {isa = PBXBuildFile; fileRef = 9CEBC014E2824D70A4C0374A /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/config.hpp */; };
+		7D6187FE16EA48798F241497 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */ = {isa = PBXBuildFile; fileRef = 06B4ADAE1BD94B4B8D318C39 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */; };
+		80BBFA768E304EEAB6C75F4D /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */ = {isa = PBXBuildFile; fileRef = F731DFDAF2054B718DC2A456 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */; };
+		86CE648187C242FEAC613877 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.hpp */ = {isa = PBXBuildFile; fileRef = 04F597B7E3BF447D8D3B0F2A /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.hpp */; };
+		96ABC64FE4094C41A6586CD7 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp */ = {isa = PBXBuildFile; fileRef = 428986463A6E49499162A2E9 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp */; };
+		97880E766DEA489984EDAFDD /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/json.hpp */ = {isa = PBXBuildFile; fileRef = F921C214A2F14EB0B0FE29A3 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/json.hpp */; };
+		9EFDB00AAC23410286D6516E /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */ = {isa = PBXBuildFile; fileRef = 2376C3F201F0412DBA58107B /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */; };
+		B9B2177FA9A945A39EF899AB /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp */ = {isa = PBXBuildFile; fileRef = 583B8398140A4122A4A354A0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp */; };
+		C1C8772B0F524480B5C5ACF4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp */ = {isa = PBXBuildFile; fileRef = 73921C703B0C4640B02C8A1E /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp */; };
+		C2829D9EACC6401E90C5B260 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.hpp */ = {isa = PBXBuildFile; fileRef = 848EFA456B98405F995358F4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.hpp */; };
+		CCA6EE7ED6934EFBA7F82A4D /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/Map.hpp */ = {isa = PBXBuildFile; fileRef = 23FAB22CAF7D4CDD8A372F09 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/Map.hpp */; };
+		D5E189A8B0154FA4A477C066 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */ = {isa = PBXBuildFile; fileRef = 9627425938834FCBB8ECCD05 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */; };
+		E43303A130CB4AA7B095D904 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */ = {isa = PBXBuildFile; fileRef = A2772CE7D95346ACAAC93703 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */; };
+		F3900DB691AB47E78004B209 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = BE91346DC358415E98E88D5B /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */; };
+		F3C3A2F1057B441495CD4EDE /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/Map.cpp */ = {isa = PBXBuildFile; fileRef = 8A8712B9C33A48829C29430A /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/Map.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		18C75F8F7A384561A5F68C41 /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		386EA951C7604268ABE0F985 /* Debug */ = {
+		31B9B0A4CF43491BB381100A /* Debug */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Debug;
 		};
-		6E152E8588CF4338A7293CA3 /* Release */ = {
+		66F2915FB7E541DDA5095CDB /* Release */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Release;
 		};
-		82557DCD67FB49379584C4F0 /* RelWithDebInfo */ = {
+		8645230E3D4C46D899E7FDBB /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		8B264C7FE800474A974D111D /* RelWithDebInfo */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -88,21 +90,21 @@
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		66A4189F260043219237DCE3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3CE7417A6EB480B8771468C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F65CAF2ED18F45589F6858EF;
-			remoteInfo = ZERO_CHECK;
-		};
-		6A4A1A8ACB10479B8DFDEE69 /* PBXContainerItemProxy */ = {
+		3EA8434FF4CB4EEDAE3B06BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3CE7417A6EB480B8771468C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 188BFEBD2D2C4EA6836AC717;
 			remoteInfo = path_planning;
 		};
-		D2E26F17B1A9425E94373700 /* PBXContainerItemProxy */ = {
+		7EA765539A43464D8B27B7AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3CE7417A6EB480B8771468C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F65CAF2ED18F45589F6858EF;
+			remoteInfo = ZERO_CHECK;
+		};
+		807795FB9B0A42179C92B93D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3CE7417A6EB480B8771468C /* Project object */;
 			proxyType = 1;
@@ -112,32 +114,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		094B2ED01D5A4C25855467A2 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = TrajectoryPlanner.cpp; path = src/TrajectoryPlanner.cpp; sourceTree = SOURCE_ROOT; };
-		1520BFC14C584DFD99193850 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = HelperFunctions.hpp; path = src/HelperFunctions.hpp; sourceTree = SOURCE_ROOT; };
-		19A113E97CA5408E9F903185 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PolynomialSolver.cpp; path = src/PolynomialSolver.cpp; sourceTree = SOURCE_ROOT; };
-		3E2E30B938D9464080091BB6 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = HelperFunctions.cpp; path = src/HelperFunctions.cpp; sourceTree = SOURCE_ROOT; };
-		651A70FAF4EE4475ACA8223D /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = ObjectPrediction.hpp; path = src/ObjectPrediction.hpp; sourceTree = SOURCE_ROOT; };
-		770E7F7F3F9248CDAA924955 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = TrajectoryConverter.cpp; path = src/TrajectoryConverter.cpp; sourceTree = SOURCE_ROOT; };
-		781BEDB3265643C8A0A50452 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = HighwayPlanner.hpp; path = src/HighwayPlanner.hpp; sourceTree = SOURCE_ROOT; };
-		953B26316FFD4932B89033CD /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/config.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = config.hpp; path = src/config.hpp; sourceTree = SOURCE_ROOT; };
-		9B01717BFC1A4B0AB284AC88 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = DataTypes.hpp; path = src/DataTypes.hpp; sourceTree = SOURCE_ROOT; };
-		9D58A7D74B7A4DACA129F40F /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ObjectPrediction.cpp; path = src/ObjectPrediction.cpp; sourceTree = SOURCE_ROOT; };
-		A3A8CD7F35BA4B858041AEC4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = PolynomialSolver.hpp; path = src/PolynomialSolver.hpp; sourceTree = SOURCE_ROOT; };
-		B87E00CCCD7B483291562448 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/spline.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = spline.h; path = src/spline.h; sourceTree = SOURCE_ROOT; };
-		B9CA8EFC634D40108CAEAFDF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = TrajectoryConverter.hpp; path = src/TrajectoryConverter.hpp; sourceTree = SOURCE_ROOT; };
-		C4E930A240DD4C70A9ADA10E /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = BehaviorPlanner.cpp; path = src/BehaviorPlanner.cpp; sourceTree = SOURCE_ROOT; };
-		CF7CE1B0B6074013997F40EA /* path_planning */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = path_planning; sourceTree = BUILT_PRODUCTS_DIR; };
-		D82628D7630547D19AB9B8B4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		DBF01AB040BD42898EFDD1A4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = HighwayPlanner.cpp; path = src/HighwayPlanner.cpp; sourceTree = SOURCE_ROOT; };
-		EBE3027C68CA42CD9B097072 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/json.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = json.hpp; path = src/json.hpp; sourceTree = SOURCE_ROOT; };
-		ECDD3AE7021C4AB5B05EE3D8 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		F2B30E356BFA41D9AF9E81AF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = BehaviorPlanner.hpp; path = src/BehaviorPlanner.hpp; sourceTree = SOURCE_ROOT; };
-		F5EC894F2ABD4DCB9606C277 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
-		F66AA8CC80284B1AB1449DAF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = TrajectoryPlanner.hpp; path = src/TrajectoryPlanner.hpp; sourceTree = SOURCE_ROOT; };
+		03A58AB840254D3AB06CD6D0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = BehaviorPlanner.cpp; path = src/BehaviorPlanner.cpp; sourceTree = SOURCE_ROOT; };
+		04F597B7E3BF447D8D3B0F2A /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = ObjectPrediction.hpp; path = src/ObjectPrediction.hpp; sourceTree = SOURCE_ROOT; };
+		06B4ADAE1BD94B4B8D318C39 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = TrajectoryPlanner.cpp; path = src/TrajectoryPlanner.cpp; sourceTree = SOURCE_ROOT; };
+		1BBC87B4972F4FB6BF45DFCE /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = PolynomialSolver.hpp; path = src/PolynomialSolver.hpp; sourceTree = SOURCE_ROOT; };
+		2376C3F201F0412DBA58107B /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = TrajectoryConverter.cpp; path = src/TrajectoryConverter.cpp; sourceTree = SOURCE_ROOT; };
+		23FAB22CAF7D4CDD8A372F09 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/Map.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Map.hpp; path = src/Map.hpp; sourceTree = SOURCE_ROOT; };
+		406BE5C3D64E4C3C91E3D7D6 /* path_planning */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = path_planning; sourceTree = BUILT_PRODUCTS_DIR; };
+		428986463A6E49499162A2E9 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = TrajectoryPlanner.hpp; path = src/TrajectoryPlanner.hpp; sourceTree = SOURCE_ROOT; };
+		4E331BC8C11C4493A1414AC4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = HelperFunctions.hpp; path = src/HelperFunctions.hpp; sourceTree = SOURCE_ROOT; };
+		50F0B34B6C12468C800F9074 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ObjectPrediction.cpp; path = src/ObjectPrediction.cpp; sourceTree = SOURCE_ROOT; };
+		583B8398140A4122A4A354A0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = DataTypes.hpp; path = src/DataTypes.hpp; sourceTree = SOURCE_ROOT; };
+		61B81DCB66B648C2AAE93763 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = BehaviorPlanner.hpp; path = src/BehaviorPlanner.hpp; sourceTree = SOURCE_ROOT; };
+		73921C703B0C4640B02C8A1E /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = HighwayPlanner.hpp; path = src/HighwayPlanner.hpp; sourceTree = SOURCE_ROOT; };
+		7DBCDBAE86884179BB32A584 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		848EFA456B98405F995358F4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = TrajectoryConverter.hpp; path = src/TrajectoryConverter.hpp; sourceTree = SOURCE_ROOT; };
+		8A8712B9C33A48829C29430A /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/Map.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Map.cpp; path = src/Map.cpp; sourceTree = SOURCE_ROOT; };
+		9627425938834FCBB8ECCD05 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = HighwayPlanner.cpp; path = src/HighwayPlanner.cpp; sourceTree = SOURCE_ROOT; };
+		9CEBC014E2824D70A4C0374A /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/config.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = config.hpp; path = src/config.hpp; sourceTree = SOURCE_ROOT; };
+		A2772CE7D95346ACAAC93703 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = HelperFunctions.cpp; path = src/HelperFunctions.cpp; sourceTree = SOURCE_ROOT; };
+		ADB7D5BCBFA341F19AB06FE0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/spline.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = spline.h; path = src/spline.h; sourceTree = SOURCE_ROOT; };
+		BE91346DC358415E98E88D5B /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		F731DFDAF2054B718DC2A456 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PolynomialSolver.cpp; path = src/PolynomialSolver.cpp; sourceTree = SOURCE_ROOT; };
+		F921C214A2F14EB0B0FE29A3 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/json.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = json.hpp; path = src/json.hpp; sourceTree = SOURCE_ROOT; };
+		FE3D5124C52D4D3895CE0549 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		010C2A348A8F44BEA8BF01C3 /* Frameworks */ = {
+		9C55D1E7F01045FB838C9EC0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -147,88 +151,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A390862F03244B28D9A3DDB /* CMake Rules */ = {
+		089B9C6B33404DDFA9EBF180 /* path_planning */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		2B199E04F62D46008A974384 /* path_planning */ = {
-			isa = PBXGroup;
-			children = (
-				4AA0B9CF31F4496DA897BEEB /* Source Files */,
-				B1E442913383451BA60BDC9F /* Header Files */,
-				D82628D7630547D19AB9B8B4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */,
+				9486F5BC1226400CA4417CD2 /* Source Files */,
+				13DD1679BEB3448AA3E7693E /* Header Files */,
+				BE91346DC358415E98E88D5B /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */,
 			);
 			name = path_planning;
 			sourceTree = "<group>";
 		};
-		4AA0B9CF31F4496DA897BEEB /* Source Files */ = {
+		13DD1679BEB3448AA3E7693E /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				C4E930A240DD4C70A9ADA10E /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */,
-				3E2E30B938D9464080091BB6 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */,
-				DBF01AB040BD42898EFDD1A4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */,
-				9D58A7D74B7A4DACA129F40F /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */,
-				19A113E97CA5408E9F903185 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */,
-				770E7F7F3F9248CDAA924955 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */,
-				094B2ED01D5A4C25855467A2 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */,
-				F5EC894F2ABD4DCB9606C277 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */,
+				61B81DCB66B648C2AAE93763 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp */,
+				583B8398140A4122A4A354A0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp */,
+				4E331BC8C11C4493A1414AC4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp */,
+				73921C703B0C4640B02C8A1E /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp */,
+				23FAB22CAF7D4CDD8A372F09 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/Map.hpp */,
+				04F597B7E3BF447D8D3B0F2A /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.hpp */,
+				1BBC87B4972F4FB6BF45DFCE /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.hpp */,
+				848EFA456B98405F995358F4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.hpp */,
+				428986463A6E49499162A2E9 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp */,
+				9CEBC014E2824D70A4C0374A /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/config.hpp */,
+				F921C214A2F14EB0B0FE29A3 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/json.hpp */,
+				ADB7D5BCBFA341F19AB06FE0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/spline.h */,
 			);
-			name = "Source Files";
+			name = "Header Files";
 			sourceTree = "<group>";
 		};
-		7E0AAE4FDE9F4D108C4C5AA4 = {
-			isa = PBXGroup;
-			children = (
-				2B199E04F62D46008A974384 /* path_planning */,
-				98DB589CB4FF4119A62E5699 /* ALL_BUILD */,
-				ED2E39132379461FB067F7C9 /* Products */,
-				A72E04B026B44CCB914E770A /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		98DB589CB4FF4119A62E5699 /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				0A390862F03244B28D9A3DDB /* CMake Rules */,
-				ECDD3AE7021C4AB5B05EE3D8 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		A72E04B026B44CCB914E770A /* Frameworks */ = {
+		16DD664E8F3040C892A0E620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B1E442913383451BA60BDC9F /* Header Files */ = {
+		2660B7D3115649FD834B0707 /* ALL_BUILD */ = {
 			isa = PBXGroup;
 			children = (
-				F2B30E356BFA41D9AF9E81AF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.hpp */,
-				9B01717BFC1A4B0AB284AC88 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp */,
-				1520BFC14C584DFD99193850 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp */,
-				781BEDB3265643C8A0A50452 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.hpp */,
-				651A70FAF4EE4475ACA8223D /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.hpp */,
-				A3A8CD7F35BA4B858041AEC4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.hpp */,
-				B9CA8EFC634D40108CAEAFDF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.hpp */,
-				F66AA8CC80284B1AB1449DAF /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp */,
-				953B26316FFD4932B89033CD /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/config.hpp */,
-				EBE3027C68CA42CD9B097072 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/json.hpp */,
-				B87E00CCCD7B483291562448 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/spline.h */,
+				B71915610EF54D4388108DC8 /* CMake Rules */,
+				7DBCDBAE86884179BB32A584 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/CMakeLists.txt */,
 			);
-			name = "Header Files";
+			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
-		ED2E39132379461FB067F7C9 /* Products */ = {
+		285EB8A03D2445E0B22AEE1C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CF7CE1B0B6074013997F40EA /* path_planning */,
+				406BE5C3D64E4C3C91E3D7D6 /* path_planning */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9486F5BC1226400CA4417CD2 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				03A58AB840254D3AB06CD6D0 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */,
+				A2772CE7D95346ACAAC93703 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */,
+				9627425938834FCBB8ECCD05 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */,
+				8A8712B9C33A48829C29430A /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/Map.cpp */,
+				50F0B34B6C12468C800F9074 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */,
+				F731DFDAF2054B718DC2A456 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */,
+				2376C3F201F0412DBA58107B /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */,
+				06B4ADAE1BD94B4B8D318C39 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */,
+				FE3D5124C52D4D3895CE0549 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		AB8F09906984432192998ECA = {
+			isa = PBXGroup;
+			children = (
+				089B9C6B33404DDFA9EBF180 /* path_planning */,
+				2660B7D3115649FD834B0707 /* ALL_BUILD */,
+				285EB8A03D2445E0B22AEE1C /* Products */,
+				16DD664E8F3040C892A0E620 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B71915610EF54D4388108DC8 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,19 +242,19 @@
 /* Begin PBXNativeTarget section */
 		188BFEBD2D2C4EA6836AC717 /* path_planning */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9F4A84606164D6E9908BC96 /* Build configuration list for PBXNativeTarget "path_planning" */;
+			buildConfigurationList = 707E19A01DA24CFFBF5C3001 /* Build configuration list for PBXNativeTarget "path_planning" */;
 			buildPhases = (
-				0CD23BC7CACA45C7BEDCC5AE /* Sources */,
-				010C2A348A8F44BEA8BF01C3 /* Frameworks */,
+				1E40189BFC57440F99181284 /* Sources */,
+				9C55D1E7F01045FB838C9EC0 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FB7B0A4E12A94991BB9A8680 /* PBXTargetDependency */,
+				1FAB513332CF492097137C5B /* PBXTargetDependency */,
 			);
 			name = path_planning;
 			productName = path_planning;
-			productReference = CF7CE1B0B6074013997F40EA /* path_planning */;
+			productReference = 406BE5C3D64E4C3C91E3D7D6 /* path_planning */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -260,18 +266,18 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1250;
 			};
-			buildConfigurationList = F5CF8BCB1962488C999BE44A /* Build configuration list for PBXProject "Path_Planning" */;
+			buildConfigurationList = 0F29EF39FDF54DC292ACB231 /* Build configuration list for PBXProject "Path_Planning" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				386EA951C7604268ABE0F985 /* Debug */,
-				6E152E8588CF4338A7293CA3 /* Release */,
-				18C75F8F7A384561A5F68C41 /* MinSizeRel */,
-				82557DCD67FB49379584C4F0 /* RelWithDebInfo */,
+				31B9B0A4CF43491BB381100A /* Debug */,
+				66F2915FB7E541DDA5095CDB /* Release */,
+				8645230E3D4C46D899E7FDBB /* MinSizeRel */,
+				8B264C7FE800474A974D111D /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = 7E0AAE4FDE9F4D108C4C5AA4;
+			mainGroup = AB8F09906984432192998ECA;
 			projectDirPath = ../;
 			projectRoot = "";
 			targets = (
@@ -382,83 +388,54 @@ fi
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0CD23BC7CACA45C7BEDCC5AE /* Sources */ = {
+		1E40189BFC57440F99181284 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5DF02F178204392934433F8 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */,
-				0B6472C0058144E2BAC2A6E2 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */,
-				05F86197C2F4475583DEF22D /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */,
-				1C66C70647214D4091BFE142 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */,
-				8DEB1E5F5E474577B32DBABD /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */,
-				F60F28BBFA3246368255CB17 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */,
-				E6A940A5C6A14F7EB0E18166 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */,
-				A509F28AFBC24B9A95551877 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */,
+				25B7D3434783481DA2785B71 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/BehaviorPlanner.cpp */,
+				E43303A130CB4AA7B095D904 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.cpp */,
+				D5E189A8B0154FA4A477C066 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/HighwayPlanner.cpp */,
+				F3C3A2F1057B441495CD4EDE /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/Map.cpp */,
+				3EEDC5798BBE46CC82DEC1F4 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/ObjectPrediction.cpp */,
+				80BBFA768E304EEAB6C75F4D /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.cpp */,
+				9EFDB00AAC23410286D6516E /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryConverter.cpp */,
+				7D6187FE16EA48798F241497 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp */,
+				2D5212A688D84F828F89A971 /* /Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/src/main.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BCA0EC1B1867480DBD86E0AC /* PBXTargetDependency */ = {
+		0576B74BFD0F434B91D94FF8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F65CAF2ED18F45589F6858EF /* ZERO_CHECK */;
-			targetProxy = D2E26F17B1A9425E94373700 /* PBXContainerItemProxy */;
+			targetProxy = 807795FB9B0A42179C92B93D /* PBXContainerItemProxy */;
 		};
-		EE4468E7B7BA4BEBAA1CEC4F /* PBXTargetDependency */ = {
+		1FAB513332CF492097137C5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F65CAF2ED18F45589F6858EF /* ZERO_CHECK */;
+			targetProxy = 7EA765539A43464D8B27B7AA /* PBXContainerItemProxy */;
+		};
+		658E4C1DD62F46409A799319 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 188BFEBD2D2C4EA6836AC717 /* path_planning */;
-			targetProxy = 6A4A1A8ACB10479B8DFDEE69 /* PBXContainerItemProxy */;
-		};
-		FB7B0A4E12A94991BB9A8680 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F65CAF2ED18F45589F6858EF /* ZERO_CHECK */;
-			targetProxy = 66A4189F260043219237DCE3 /* PBXContainerItemProxy */;
+			targetProxy = 3EA8434FF4CB4EEDAE3B06BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		03F62B095D644D10B5AD0533 /* Debug */ = {
+		0F5F4088A9724CEA9C3E24D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk;
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/build";
 			};
-			name = Debug;
+			name = Release;
 		};
-		1C862EE1795F47CA8615268E /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		5BF20B4677934ED1A985CC9B /* Release */ = {
+		29E52F0CFBD84F8CA62F2E9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -478,109 +455,7 @@ fi
 			};
 			name = Release;
 		};
-		5F828CC815A44BAEB2AD21AE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,/usr/local/opt/openssl/include,"$(inherited)");
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = ("/usr/local/lib /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1.11.0/lib","$(inherited)");
-				LIBRARY_SEARCH_PATHS = ("/usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/lib,"/usr/local/opt/openssl/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/opt/openssl/lib,"/usr/local/Cellar/libuv/1.11.0/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/Cellar/libuv/1.11.0/lib,"$(inherited)");
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG   -std=c++11";
-				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-lz","-lssl","-luv","-luWS");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = path_planning;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Release;
-		};
-		6C5FB187D7AE4555935C8C9E /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk;
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/build";
-			};
-			name = MinSizeRel;
-		};
-		75D2150905684D299508E1ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk;
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/build";
-			};
-			name = Release;
-		};
-		76E3503CBB4F47C5A2AB2079 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk;
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/build";
-			};
-			name = Debug;
-		};
-		821785DF059B46C29CC468B3 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		9312FED51E9242E98355B2F2 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,/usr/local/opt/openssl/include,"$(inherited)");
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = ("/usr/local/lib /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1.11.0/lib","$(inherited)");
-				LIBRARY_SEARCH_PATHS = ("/usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/lib,"/usr/local/opt/openssl/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/opt/openssl/lib,"/usr/local/Cellar/libuv/1.11.0/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/Cellar/libuv/1.11.0/lib,"$(inherited)");
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG   -std=c++11";
-				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-lz","-lssl","-luv","-luWS");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = path_planning;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		9D3D668198044EF4925D03F1 /* MinSizeRel */ = {
+		59B53016C7764D9F87F0E942 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -600,7 +475,7 @@ fi
 			};
 			name = MinSizeRel;
 		};
-		D0ECEB9EFA9E41849059ACAB /* MinSizeRel */ = {
+		64896282AD01473D87FA905C /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -626,17 +501,73 @@ fi
 			};
 			name = MinSizeRel;
 		};
-		DDFA4E53936E4D7DB77C9FE8 /* RelWithDebInfo */ = {
+		6FE42E063A4F4B07829B0B0A /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk;
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/build";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		77BA791502774F8A870A3528 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		99EE4FFF4E384D6EB03AF6E7 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,/usr/local/opt/openssl/include,"$(inherited)");
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = ("/usr/local/lib /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1.11.0/lib","$(inherited)");
+				LIBRARY_SEARCH_PATHS = ("/usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/lib,"/usr/local/opt/openssl/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/opt/openssl/lib,"/usr/local/Cellar/libuv/1.11.0/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/Cellar/libuv/1.11.0/lib,"$(inherited)");
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG   -std=c++11";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-lz","-lssl","-luv","-luWS");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = path_planning;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
 			};
 			name = RelWithDebInfo;
 		};
-		E205A18BEB1243C792803E9C /* Debug */ = {
+		9BF156EC4C1C4439AA233C7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -662,7 +593,53 @@ fi
 			};
 			name = Debug;
 		};
-		F293237FEFE64EBB9744E24D /* Debug */ = {
+		A6E148DD2C454A0D917C5D67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,/usr/local/opt/openssl/include,"$(inherited)");
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = ("/usr/local/lib /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1.11.0/lib","$(inherited)");
+				LIBRARY_SEARCH_PATHS = ("/usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/lib,"/usr/local/opt/openssl/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/opt/openssl/lib,"/usr/local/Cellar/libuv/1.11.0/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",/usr/local/Cellar/libuv/1.11.0/lib,"$(inherited)");
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG   -std=c++11";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-lz","-lssl","-luv","-luWS");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = path_planning;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		A7288EF0341F418FBD51487B /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		AFFA4988878A47A6AE2C137D /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -679,30 +656,20 @@ fi
 				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		B6CD21D43E544FADA3407A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk;
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/build";
 			};
 			name = Debug;
 		};
-		F806EA580EFA4E85B072BB93 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		FD451FB6E54B444484E4ADC9 /* Release */ = {
+		B879F27171B3433ABAEF99B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -722,49 +689,89 @@ fi
 			};
 			name = Release;
 		};
+		B907670B4D3C400492C34CA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		CD276A686D8141008A648729 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk;
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/build";
+			};
+			name = MinSizeRel;
+		};
+		E1222FD6FD454EC7A36A92CA /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk;
+				SYMROOT = "/Users/jakobklein/Desktop/Desktop/Udacity - Nanodegree Sefl driving cars engineer/Term_2/Planning/PathPlanningProject/build/build";
+			};
+			name = RelWithDebInfo;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7550F3563EAF4215974124F4 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		0F29EF39FDF54DC292ACB231 /* Build configuration list for PBXProject "Path_Planning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				03F62B095D644D10B5AD0533 /* Debug */,
-				FD451FB6E54B444484E4ADC9 /* Release */,
-				9D3D668198044EF4925D03F1 /* MinSizeRel */,
-				1C862EE1795F47CA8615268E /* RelWithDebInfo */,
+				B6CD21D43E544FADA3407A20 /* Debug */,
+				0F5F4088A9724CEA9C3E24D8 /* Release */,
+				CD276A686D8141008A648729 /* MinSizeRel */,
+				E1222FD6FD454EC7A36A92CA /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		BE94821343A1497C9241016A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		42E8A3D3FFF3417CB2B0E162 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F293237FEFE64EBB9744E24D /* Debug */,
-				5BF20B4677934ED1A985CC9B /* Release */,
-				F806EA580EFA4E85B072BB93 /* MinSizeRel */,
-				821785DF059B46C29CC468B3 /* RelWithDebInfo */,
+				77BA791502774F8A870A3528 /* Debug */,
+				B879F27171B3433ABAEF99B3 /* Release */,
+				59B53016C7764D9F87F0E942 /* MinSizeRel */,
+				A7288EF0341F418FBD51487B /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E9F4A84606164D6E9908BC96 /* Build configuration list for PBXNativeTarget "path_planning" */ = {
+		707E19A01DA24CFFBF5C3001 /* Build configuration list for PBXNativeTarget "path_planning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E205A18BEB1243C792803E9C /* Debug */,
-				5F828CC815A44BAEB2AD21AE /* Release */,
-				D0ECEB9EFA9E41849059ACAB /* MinSizeRel */,
-				9312FED51E9242E98355B2F2 /* RelWithDebInfo */,
+				9BF156EC4C1C4439AA233C7A /* Debug */,
+				A6E148DD2C454A0D917C5D67 /* Release */,
+				64896282AD01473D87FA905C /* MinSizeRel */,
+				99EE4FFF4E384D6EB03AF6E7 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		F5CF8BCB1962488C999BE44A /* Build configuration list for PBXProject "Path_Planning" */ = {
+		7488DC48348F4AC68DF6A831 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				76E3503CBB4F47C5A2AB2079 /* Debug */,
-				75D2150905684D299508E1ED /* Release */,
-				6C5FB187D7AE4555935C8C9E /* MinSizeRel */,
-				DDFA4E53936E4D7DB77C9FE8 /* RelWithDebInfo */,
+				B907670B4D3C400492C34CA8 /* Debug */,
+				29E52F0CFBD84F8CA62F2E9B /* Release */,
+				6FE42E063A4F4B07829B0B0A /* MinSizeRel */,
+				AFFA4988878A47A6AE2C137D /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

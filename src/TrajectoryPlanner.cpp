@@ -15,7 +15,15 @@
 #include "TrajectoryConverter.hpp"
 
 
-void TrajectoryPlanner::init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list , std::shared_ptr<WaypointMap> global_map, std::shared_ptr<OutputPath> output_path, std::shared_ptr<OutputPath> previous_path)
+//Todo
+//goal in step should come from behavior (implicit)
+//plan lateral trajectory
+//combine in every possible way
+//generate total score
+//do a collision check on the best, if fails second best and so on
+//select the best
+
+void TrajectoryPlanner::Init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list , std::shared_ptr<Map> global_map, std::shared_ptr<OutputPath> output_path, std::shared_ptr<OutputPath> previous_path)
 {
     vehicle_pose_ptr_ = vehicle_pose;
     object_list_ptr_ = object_list;
@@ -24,13 +32,13 @@ void TrajectoryPlanner::init(std::shared_ptr<VehiclePose> vehicle_pose, std::sha
     output_path_ptr_ = output_path;
 }
 
-void TrajectoryPlanner::step()
+void TrajectoryPlanner::Step()
 {
     //Update the timestep
     IncrementPlanningTimeStep();
     
     //Generate a bunch of trajectories
-    double goal_s_dot = CONFIGURATION::speed_limit_m_s;
+    double goal_s_dot = 0.9 * CONFIGURATION::speed_limit_m_s;
     double goal_d =  6.0;
     double planning_time = CONFIGURATION::trajectory_planning_time_total;
     //TODO: maybe we need to take number of executed elements into account
@@ -81,12 +89,6 @@ void TrajectoryPlanner::GenerateVelocityKeepingInLaneTrajectory(double goal_s_do
     const PlanningState current_state_long{vehicle_pose_ptr_->position_s,vehicle_pose_ptr_->position_s_dot,vehicle_pose_ptr_->position_s_dot_dot};//s,s_dot,s_dotdot,T
 
 
-    //create polynomial containers
-    std::vector<QuinticPolynomialTrajectory> polynomial_candidates_lateral;
-    polynomial_candidates_lateral.reserve(30);
-    /*std::vector<QuarticPolynomialTrajectory> polynomial_candidates_longitudinal;
-    polynomial_candidates_lateral.reserve(30);*/
-
     
     for(int i = 0; i <= static_cast<int>(planning_time) ;++i)
     {
@@ -95,18 +97,25 @@ void TrajectoryPlanner::GenerateVelocityKeepingInLaneTrajectory(double goal_s_do
         {continue;}
         std::cout << "planning_end_time: "<< planning_end_time<< '\n';
 
-        for(int j = 0; j < 1;++j)//TODO: CHANGE THAT
+        for(int j = 0; j < 1;++j)//TODO: CHANGE THAT TO 3
         {
             if(j>0)
             {
                 //>>>>>lateral<<<<<
                 //Lateral shifted traj
-//                const PlanningState goal_state_lat_pos_shift{(goal_d+(j*CONFIGURATION::lateral_goal_shift)),0.0,0.0};//d,d_dot,d_dotdot}
-//                QuinticPolynomialTrajectory lateral_trajectory_pos_shift;
-//                lateral_trajectory_pos_shift.trajectory_type = TrajectoryType::VelocityKeeping;
-//                lateral_trajectory_pos_shift.max_planning_time = planning_end_time;
-//                lateral_trajectory_pos_shift.polynomial = PolynomialSolver::CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat_pos_shift, planning_end_time);
-                //polynomial_candidates_lateral.push_back(lateral_trajectory_pos_shift);
+                const PlanningState goal_state_lat_pos_shift{(goal_d+(j*CONFIGURATION::lateral_goal_shift)),0.0,0.0};//d,d_dot,d_dotdot}
+                QuinticPolynomialTrajectory lateral_trajectory_pos_shift;
+                lateral_trajectory_pos_shift.trajectory_type = TrajectoryType::VelocityKeeping;
+                lateral_trajectory_pos_shift.max_planning_time = planning_end_time;
+                lateral_trajectory_pos_shift.polynomial = PolynomialSolver::CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat_pos_shift, planning_end_time);
+                DiscretizedTrajectory lateral_trajectory_pos_shift_disc = TrajectoryConverter::DiscretizeQuinticPolynomialTrajectory(lateral_trajectory_pos_shift);
+                candidate_trajectories_lateral.push_back(lateral_trajectory_pos_shift_disc);
+                //                if(!(longitudinal_trajectory_shorter_disc.exceeds_acceleration_limit||longitudinal_trajectory_shorter_disc.exceeds_acceleration_limit))
+                //                   {
+                //                    candidate_trajectories_longitudinal.push_back(longitudinal_trajectory_shorter_disc);
+                //                   }
+                
+
                 //>>>>>longitudinal<<<<<
                 const PlanningState goal_state_long{0.0,CONFIGURATION::speed_limit_m_s - ((j+3) *CONFIGURATION::longitudinal_velocity_goal_shift),0.0};//s,s_dot,s_dotdot
                 //Generate Polynomial for longitudinal trajectory
@@ -131,12 +140,17 @@ void TrajectoryPlanner::GenerateVelocityKeepingInLaneTrajectory(double goal_s_do
             }
             //>>>>>lateral<<<<<
             //Generate Polynomial for lateral trajectory
-//            const PlanningState goal_state_lat_neg_shift{(goal_d-(j*CONFIGURATION::lateral_goal_shift)),0.0,0.0};//d,d_dot,d_dotdot
-//            QuinticPolynomialTrajectory lateral_trajectory_neg_shift;
-//            lateral_trajectory_neg_shift.trajectory_type = TrajectoryType::VelocityKeeping;
-//            lateral_trajectory_neg_shift.max_planning_time = planning_end_time;
-//            lateral_trajectory_neg_shift.polynomial = PolynomialSolver::CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat_neg_shift, planning_end_time);
-//            polynomial_candidates_lateral.push_back(lateral_trajectory_neg_shift);
+            const PlanningState goal_state_lat_neg_shift{(goal_d-(j*CONFIGURATION::lateral_goal_shift)),0.0,0.0};//d,d_dot,d_dotdot
+            QuinticPolynomialTrajectory lateral_trajectory_neg_shift;
+            lateral_trajectory_neg_shift.trajectory_type = TrajectoryType::VelocityKeeping;
+            lateral_trajectory_neg_shift.max_planning_time = planning_end_time;
+            lateral_trajectory_neg_shift.polynomial = PolynomialSolver::CalculateQuinticPolynomialCoefficients(current_state_lat, goal_state_lat_neg_shift, planning_end_time);
+            DiscretizedTrajectory goal_state_lat_neg_shift_disc = TrajectoryConverter::DiscretizeQuinticPolynomialTrajectory(lateral_trajectory_neg_shift);
+            candidate_trajectories_lateral.push_back(goal_state_lat_neg_shift_disc);
+            //                if(!(longitudinal_trajectory_shorter_disc.exceeds_acceleration_limit||longitudinal_trajectory_shorter_disc.exceeds_acceleration_limit))
+            //                   {
+            //                    candidate_trajectories_longitudinal.push_back(longitudinal_trajectory_shorter_disc);
+            //                   }
             
             //>>>>>longitudinal<<<<<
             //We do not care for goal position, but for the veloctiy, since not used in solver, safe to set to 0, we aim for velocity keeping in goal, so no more acceleration
@@ -167,7 +181,8 @@ void TrajectoryPlanner::GenerateVelocityKeepingInLaneTrajectory(double goal_s_do
     }
 
     //for now we just take the best ones and combine them, later we might wanna chack every combination
-    const DiscretizedTrajectory t =  SelectTrajectory(candidate_trajectories_longitudinal);
+    trajectory_longitudinal_ =  SelectTrajectory(candidate_trajectories_longitudinal);
+    trajectory_lateral_ =  SelectTrajectory(candidate_trajectories_lateral);
 
     
     output_path_ptr_->planned_coordinates_cartesian.next_x_vals.clear();
@@ -175,10 +190,11 @@ void TrajectoryPlanner::GenerateVelocityKeepingInLaneTrajectory(double goal_s_do
     
     for(int i = 1; i < CONFIGURATION::num_trajectory_points; ++i)
     {
-        const std::vector<double> xy_vec = helpers::getXY(t.points.at(i).position, 6.0, global_map_ptr_->map_waypoints_s, global_map_ptr_->map_waypoints_x, global_map_ptr_->map_waypoints_y);
-        if(i<0)//CONFIGURATION::num_trajectory_points)
+        const std::vector<double> xy_vec = global_map_ptr_->GetCartesian(trajectory_longitudinal_.points.at(i).position, trajectory_lateral_.points.at(i).position);
+        if(i<50)
         {
-            std::cout << "point: " << i << ", x: " << xy_vec.at(0) << ",y: " << xy_vec.at(1) <<std::endl;
+//            std::cout << "point: " << i << ", x: " << xy_vec.at(0) << ",y: " << xy_vec.at(1) <<std::endl;
+            std::cout << "point: " << i << ", s: " << trajectory_longitudinal_.points.at(i).position << ",d: " << trajectory_lateral_.points.at(i).position <<std::endl;
         }
         output_path_ptr_->planned_coordinates_cartesian.next_x_vals.push_back(xy_vec.at(0));
         output_path_ptr_->planned_coordinates_cartesian.next_y_vals.push_back(xy_vec.at(1));
@@ -223,6 +239,32 @@ DiscretizedTrajectory TrajectoryPlanner::SelectTrajectory(std::vector<Discretize
     std::sort(trajectory_candidates.begin(), trajectory_candidates.end(), [](const DiscretizedTrajectory& lhs, const DiscretizedTrajectory& rhs)->bool{return lhs.score < rhs.score;});
     return trajectory_candidates.front();
 }
+
+
+DiscretizedTrajectory TrajectoryPlanner::GetLongitudinalTrajectory()
+{
+    return trajectory_longitudinal_;
+}
+
+DiscretizedTrajectory TrajectoryPlanner::GetLateralTrajectory()
+{
+    return trajectory_lateral_;
+}
+
+//bool TrajectoryPlanner::CheckTrajectoryCollides(const DiscretizedTrajectory& discrete_trajectory)
+//{
+//    bool trajectory_collides = false;
+//
+//    for(int i = 0; i < discrete_trajectory.points.size(); i=i+5)
+//    {
+//        double dist_s = discrete_trajectory.points.at(i).
+//
+//    }
+//
+//
+//
+//    return trajectory_collides;
+//}
 
 
 

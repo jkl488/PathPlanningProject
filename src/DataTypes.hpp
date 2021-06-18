@@ -27,16 +27,6 @@ struct Circle
 };
 
 
-//Represents a global map consisting of waypoints
-struct WaypointMap
-{
-    std::vector<double> map_waypoints_x;
-    std::vector<double> map_waypoints_y;
-    std::vector<double> map_waypoints_s;
-    std::vector<double> map_waypoints_dx;
-    std::vector<double> map_waypoints_dy;
-};
-
 //Represents the current state of the vehicle
 struct VehiclePose {
     Vector2d position;

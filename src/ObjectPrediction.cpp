@@ -12,15 +12,14 @@
 #include <cmath>
 
 
-/*Prediction::Prediction(std::shared_ptr<ObjectList> object_list): object_list_ptr_(object_list)
-{}*/
 
-void Prediction::init(std::shared_ptr<ObjectList> object_list)
+
+void Prediction::Init(std::shared_ptr<ObjectList> object_list)
 {
     object_list_ptr_ = object_list;
 }
 
-void Prediction::predictObjectTrajectories()
+void Prediction::PredictObjectTrajectories()
 {
     //create a path for each object
     //should have as many pts as the trajectory same dt

@@ -3,6 +3,8 @@ dependencies: \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/DataTypes.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/config.hpp \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Map.hpp \
+  /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/spline.h \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/HelperFunctions.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/PolynomialSolver.hpp \
   /Users/jakobklein/Desktop/Desktop/Udacity\ -\ Nanodegree\ Sefl\ driving\ cars\ engineer/Term_2/Planning/PathPlanningProject/src/Eigen-3.3/Eigen/Core \

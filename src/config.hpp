@@ -40,6 +40,10 @@ constexpr double right_lane_upper_limit = 12.0;
 //>>>>>OTHER<<<<<<
 constexpr double object_bounding_circle_radius = 3.0;
 constexpr double cycle_time_simulator = 0.02;
+constexpr double max_map_s = 6945.554;
+constexpr double x_center = 1000.0;
+constexpr double y_center = 2000.0;
+
 
 
 
