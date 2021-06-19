@@ -19,6 +19,8 @@ constexpr double max_jerk = 9.25;//10.0; //m/s^3
 constexpr double maximum_acceleration = 9.25;// = 10; //m/s^2
 constexpr double lateral_goal_shift = 0.2;
 constexpr double longitudinal_velocity_goal_shift = 2.0;
+
+//>>>>>COSTS<<<<<
 constexpr double jerk_cost_weight = 1.0;
 constexpr double time_cost_weight = 1.0;
 constexpr double d_deviation_weight = 1.0;
@@ -30,12 +32,15 @@ constexpr double s_deviation_weight = 1.0;
 //Lane limits in frenet frame
 constexpr double left_lane_lower_limit = 0.0;
 constexpr double left_lane_upper_limit = 4.0;
+constexpr double left_lane_center = 2.0;
 
 constexpr double middle_lane_lower_limit = 4.0;
 constexpr double middle_lane_upper_limit = 8.0;
+constexpr double middle_lane_center = 6.0;
 
 constexpr double right_lane_lower_limit = 8.0;
 constexpr double right_lane_upper_limit = 12.0;
+constexpr double right_lane_center = 10.0;
 
 //>>>>>OTHER<<<<<<
 constexpr double object_bounding_circle_radius = 3.0;

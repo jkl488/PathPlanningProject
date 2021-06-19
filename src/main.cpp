@@ -12,8 +12,8 @@
 #include <algorithm>
 #include "Map.hpp"
 
-find the issue, i think we should use get spline xy
-cold start: low speed trajectory
+//find the issue, i think we should use get spline xy
+//cold start: low speed trajectory
 
 int main() {
   uWS::Hub h;

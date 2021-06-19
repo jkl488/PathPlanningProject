@@ -26,7 +26,7 @@ public:
     void Init(std::shared_ptr<VehiclePose> vehicle_pose, std::shared_ptr<ObjectList> object_list , std::shared_ptr<Map> global_map,std::shared_ptr<OutputPath> output_path, std::shared_ptr<OutputPath> previous_path);
     void Step();
     //Set the maneuver which the trajectories should be planned for
-    void SetManeuverRequest(Maneuver requested_maneuver);
+    void SetManeuverRequest(TrajectoryType requested_trajectory, GoalState requested_state);
     DiscretizedTrajectory GetLongitudinalTrajectory();
     DiscretizedTrajectory GetLateralTrajectory();
     
@@ -55,7 +55,9 @@ private:
     //time we are in the current planning mode
     int current_planning_timestep_ = -1;
     //Maneuver we should currently plan for
-    Maneuver current_maneuver_;
+    TrajectoryType current_trajectory_type_;
+    //Maneuver we should currently plan for
+    GoalState current_goal_state_;
     
 
     //For now we sty tightly to the papaer, to be able to play stupid

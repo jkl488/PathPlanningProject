@@ -26,6 +26,15 @@ struct Circle
     double radius;
 };
 
+enum class Lane : unsigned int
+{
+    leftmost = 0,
+    middle = 1,
+    right = 2,
+    unknown = 255
+};
+
+typedef Lane Lane;
 
 //Represents the current state of the vehicle
 struct VehiclePose {
@@ -40,7 +49,7 @@ struct VehiclePose {
     double position_d_dot_dot{0.0};
     double heading{0.0};
     double speed{0.0};
-    int lane_assignment{255}; //0 leftmost, 1 middle, 2 right
+    Lane lane_assignment{Lane::unknown}; //0 leftmost, 1 middle, 2 right
     Circle bounding_circle;
 };
 //Represents a object
@@ -50,7 +59,7 @@ struct Object{
     Vector2d velocity;
     double position_s;
     double position_d;
-    unsigned int lane_assignment;
+    Lane lane_assignment{Lane::unknown};
     double heading;
     Circle bounding_circle;
     std::array<double,CONFIGURATION::num_trajectory_points> predicted_longitudinal_position; //assume it holds its position in the lane
@@ -76,9 +85,10 @@ struct OutputPath
     double end_path_d;
 };
 
-enum TrajectoryType : unsigned int
+enum class TrajectoryType : unsigned int
 {
-    VelocityKeeping = 0
+    VelocityKeeping = 0,
+    VehicleFollowing = 1
     
 //    Follow
 //    LaneChange
@@ -199,7 +209,7 @@ struct ObjectPath
 };
 
 //Defining the states the state machine can be in
-enum Maneuver : unsigned int
+enum class Maneuver : unsigned int
 {
     ManeuverInit = 0U,
     ManeuverKeepLane = 1U,

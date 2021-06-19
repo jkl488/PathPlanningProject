@@ -53,7 +53,7 @@ void HighwayPlanner::Step()
     //run the behavior state machine and generate requested maneuver
     behavior_planner_.Step();
     //transmit requested maneuver to trajectory planning
-    trajectory_planner_.SetManeuverRequest(behavior_planner_.GetCurrentManeuver());
+    trajectory_planner_.SetManeuverRequest(behavior_planner_.GetCurrentManeuver(), behavior_planner_.GetCurrentGoal());
     //run trajectory planning to generate a trajectory for the current requested maneuver
     trajectory_planner_.Step();
     
@@ -127,18 +127,18 @@ void HighwayPlanner::SetVehiclePose(double x, double y, double s, double d, doub
 
     //Assign lane
     if(vehicle_pose_ptr_->position_d > CONFIGURATION::left_lane_lower_limit && vehicle_pose_ptr_->position_d <= CONFIGURATION::left_lane_upper_limit)
-    {vehicle_pose_ptr_->lane_assignment = 0;}
+    {vehicle_pose_ptr_->lane_assignment = Lane::leftmost;}
     else if(vehicle_pose_ptr_->position_d > CONFIGURATION::middle_lane_lower_limit && vehicle_pose_ptr_->position_d <= CONFIGURATION::middle_lane_upper_limit)
-    {vehicle_pose_ptr_->lane_assignment = 1;}
+    {vehicle_pose_ptr_->lane_assignment = Lane::middle;}
     else if(vehicle_pose_ptr_->position_d > CONFIGURATION::right_lane_lower_limit && vehicle_pose_ptr_->position_d <= CONFIGURATION::right_lane_upper_limit)
-    {vehicle_pose_ptr_->lane_assignment = 2;}
+    {vehicle_pose_ptr_->lane_assignment = Lane::right;}
     
     std::cout << std::fixed;
     std::cout << std::setprecision(6);
     std::cout << "setVehiclePose: Current position: x-> " << vehicle_pose_ptr_->position.x << " y-> " << vehicle_pose_ptr_->position.y << '\n';
     std::cout << "setVehiclePose: Current heading: " << vehicle_pose_ptr_->heading << '\n';
     std::cout << "setVehiclePose: Current speed: " << vehicle_pose_ptr_->speed << '\n';
-    std::cout << "setVehiclePose: Current lane: " << vehicle_pose_ptr_->lane_assignment << '\n';
+    std::cout << "setVehiclePose: Current lane: " << static_cast<int>(vehicle_pose_ptr_->lane_assignment) << '\n';
     std::cout << "setVehiclePose: Current s_dot: " << vehicle_pose_ptr_->position_s_dot << '\n';
     std::cout << "setVehiclePose: Current s_dot_Dot: " << vehicle_pose_ptr_->position_s_dot_dot << '\n';
 }
@@ -162,20 +162,32 @@ void HighwayPlanner::InsertObjects(std::vector<std::vector<double>> sensor_fusio
             double& d = sensor_fusion[i][6];
             
             //assign lane
-            unsigned int lane_assignment;
+            Lane lane_assignment;
             if(d > CONFIGURATION::left_lane_lower_limit && d <= CONFIGURATION::left_lane_upper_limit)
-            {lane_assignment = 0;}
+            {lane_assignment = Lane::leftmost;}
             else if(d > CONFIGURATION::middle_lane_lower_limit && d <= CONFIGURATION::middle_lane_upper_limit)
-            {lane_assignment = 1;}
+            {lane_assignment = Lane::middle;}
             else if(d > CONFIGURATION::right_lane_lower_limit && d <= CONFIGURATION::right_lane_upper_limit)
-            {lane_assignment = 2;}
+            {lane_assignment = Lane::right;}
             
             //Create bounding circle
             Circle bounding_circle{s,d,CONFIGURATION::object_bounding_circle_radius};
 
             //get heading
             double heading = std::atan2(vy, vx);//TODO: verify
-            object_list_ptr_->objects.at(i) = std::move(Object{id,pos_x,pos_y,vx,vy,s,d,lane_assignment,heading,bounding_circle});
+            Object obj;
+            obj.bounding_circle = bounding_circle;
+            obj.heading = heading;
+            obj.id = id;
+            obj.lane_assignment = lane_assignment;
+            obj.position.x = pos_x;
+            obj.position.y = pos_y;
+            obj.position_d = d;
+            obj.position_s = s;
+//            obj.predicted_longitudinal_position = 0.0;
+            obj.velocity.x = vx;
+            obj.velocity.y = vy;
+            //object_list_ptr_->objects.at(i) = std::move(Object{id,pos_x,pos_y,vx,vy,s,d,lane_assignment,heading,bounding_circle});
         
             
         }
