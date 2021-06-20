@@ -46,17 +46,13 @@ private:
     DiscretizedTrajectory trajectory_longitudinal_;
     DiscretizedTrajectory trajectory_lateral_;
     
-
-    
-    
-    
     //Max time span we plan a quintic trajectoty currently
-    double current_quintic_planning_time_ = 0.0;
+//    double current_quintic_planning_time_ = 0.0;
     //time we are in the current planning mode
     int current_planning_timestep_ = -1;
-    //Maneuver we should currently plan for
+    //Trajectory we should currently generate
     TrajectoryType current_trajectory_type_;
-    //Maneuver we should currently plan for
+    //Current ideal goal we want to reach
     GoalState current_goal_state_;
     
 
@@ -64,11 +60,11 @@ private:
     //For velocity keeping or stopping
     void GenerateVelocityKeepingInLaneTrajectory(double goal_s_dot , double goal_d, double planning_time, double offset);
     //follow a vehicle with a constant time gap
-    OutputPath GenerateFollowingTrajectory(PlanningState start_state, PlanningState final_state, double planning_time, double offset);
+    void GenerateVehicleFollowingTrajectory(double goal_s,double goal_s_dot,double goal_s_dot_dot, double goal_d, double planning_time, double offset);
     //Position the vehicle optimal to perform lane change
-    OutputPath GenerateMergeTrajectory(PlanningState start_state, PlanningState final_state, double planning_time, double offset);
+    void GenerateMergeTrajectory(PlanningState start_state, PlanningState final_state, double planning_time, double offset);
     //Generate a trajectory for safe transfer between lanes
-    OutputPath GenerateLaneChangeTrajectory();
+    void GenerateLaneChangeTrajectory();
     //Update the planning timestep
     void IncrementPlanningTimeStep();
     //Returns the trajectory with the lowest score

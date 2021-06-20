@@ -31,7 +31,7 @@ void Prediction::PredictObjectTrajectories()
     }
     for(auto& object: object_list_ptr_->objects)
     {
-        for(int i = 0; i < CONFIGURATION::num_trajectory_points; ++i)
+        for(int i = 0; i <= CONFIGURATION::num_trajectory_points; ++i)
         {
             double velocity_total = std::sqrt(object.velocity.x*object.velocity.x + object.velocity.y * object.velocity.y);
             //s + toal_velo * time elapsed

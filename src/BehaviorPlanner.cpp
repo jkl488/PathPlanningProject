@@ -185,7 +185,7 @@ GoalState BehaviorPlanner::GenerateLaneKeepingGoalPosition()
     // Get the target in lane
     for(auto& obj : object_list_ptr_->objects)
     {
-        if(obj.lane_assignment == vehicle_pose_ptr_->lane_assignment && target.lane_assignment != Lane::unknown)
+        if(obj.lane_assignment == vehicle_pose_ptr_->lane_assignment && obj.lane_assignment != Lane::unknown)
         {
             double dist = obj.position_s - vehicle_pose_ptr_->position_s;
             if(dist>=0.0 && dist <= min_dist)
@@ -196,23 +196,34 @@ GoalState BehaviorPlanner::GenerateLaneKeepingGoalPosition()
         }
     }
     //Check if we want to follow it
-    double max_following_dist = 2.0 * 0.9 * vehicle_pose_ptr_->position_s_dot;
-    if(target.lane_assignment != Lane::unknown && max_following_dist <= min_dist)
+    //double max_following_dist = 2.0 * CONFIGURATION::frenet_absolute_speed_hack_factor * vehicle_pose_ptr_->position_s_dot;
+    
+    //when do we want to follow:
+    //dist < config(70m)
+    //speed<= unser speed
+    double target_speed = (sqrt(target.velocity.x*target.velocity.x + target.velocity.y*target.velocity.y));
+    if(min_dist <= CONFIGURATION::end_of_sight_dist && target_speed <= vehicle_pose_ptr_->speed)// target.lane_assignment != Lane::unknown && max_following_dist <= min_dist)
     {
+        std::cout << "Vehicle following mode...." << '\n';
+        
+        
+        
+            
         //Vehicle following goal
         current_trajectory_type_ = TrajectoryType::VehicleFollowing;
         //longitudinal
-        return_goal_state.longitudinal.position = target.position_s;
-        return_goal_state.longitudinal.position_dot = 0.9 * (sqrt(target.velocity.x*target.velocity.x + target.velocity.y*target.velocity.y));
+        return_goal_state.longitudinal.position = target.position_s; //We have to take the future position into consideration at final planning time, so we need the prediction
+        return_goal_state.longitudinal.position_dot = CONFIGURATION::frenet_absolute_speed_hack_factor * target_speed;
         return_goal_state.longitudinal.position_dot_dot = 0.0;//we should use s_dot_dot of target, but let's aim for 0 acceleration here
     }
     else
     {
+        std::cout << "Velocity keeping mode...." << '\n';
         //Velocity Keeping goal
         current_trajectory_type_ = TrajectoryType::VelocityKeeping;
         //longitudinal
         return_goal_state.longitudinal.position = 0.0;
-        return_goal_state.longitudinal.position_dot = 0.9 * CONFIGURATION::speed_limit_m_s;
+        return_goal_state.longitudinal.position_dot = CONFIGURATION::frenet_absolute_speed_hack_factor * CONFIGURATION::speed_limit_m_s;
         return_goal_state.longitudinal.position_dot_dot = 0.0;
     }
     

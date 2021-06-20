@@ -25,12 +25,12 @@ DiscretizedTrajectory TrajectoryConverter::DiscretizeQuinticPolynomialTrajectory
 
         point.position_dot = polynomial_trajectory.GetVelocity(point.time);
         point.position_dot_dot = polynomial_trajectory.GetAcceleration(point.time);
-        if(point.position_dot_dot >= CONFIGURATION::maximum_acceleration)
+        if(std::abs(point.position_dot_dot) >= CONFIGURATION::maximum_acceleration)
         {
             result_trajectory.exceeds_acceleration_limit = true;
         }
         point.position_dot_dot_dot = polynomial_trajectory.GetJerk(point.time);
-        if(point.position_dot_dot_dot >= CONFIGURATION::max_jerk)
+        if(std::abs(point.position_dot_dot_dot) >= CONFIGURATION::max_jerk)
         {
             result_trajectory.exceeds_jerk_limit = true;
         }
@@ -45,12 +45,12 @@ DiscretizedTrajectory TrajectoryConverter::DiscretizeQuinticPolynomialTrajectory
 
         point.position_dot = result_trajectory.points.at(num_poly_step).position_dot;
         point.position_dot_dot = result_trajectory.points.at(num_poly_step).position_dot_dot;
-        if(point.position_dot_dot >= CONFIGURATION::maximum_acceleration)
+        if(std::abs(point.position_dot_dot) >= CONFIGURATION::maximum_acceleration)
         {
             result_trajectory.exceeds_acceleration_limit = true;
         }
         point.position_dot_dot_dot = result_trajectory.points.at(num_poly_step).position_dot_dot_dot;
-        if(point.position_dot_dot_dot >= CONFIGURATION::max_jerk)
+        if(std::abs(point.position_dot_dot_dot) >= CONFIGURATION::max_jerk)
         {
             result_trajectory.exceeds_jerk_limit = true;
         }

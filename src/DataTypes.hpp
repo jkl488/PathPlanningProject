@@ -62,7 +62,7 @@ struct Object{
     Lane lane_assignment{Lane::unknown};
     double heading;
     Circle bounding_circle;
-    std::array<double,CONFIGURATION::num_trajectory_points> predicted_longitudinal_position; //assume it holds its position in the lane
+    std::array<double,CONFIGURATION::num_trajectory_points+1> predicted_longitudinal_position; //assume it holds its position in the lane
 };
 
 //Represents a list of all objects on the right side of the road

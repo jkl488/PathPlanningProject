@@ -14,11 +14,19 @@ namespace CONFIGURATION {
 constexpr double delta_t_trajectory_points = 0.02;
 constexpr double trajectory_planning_time_total = 4.0;
 constexpr unsigned int num_trajectory_points = trajectory_planning_time_total / delta_t_trajectory_points;
-constexpr double speed_limit_m_s = (49.5 * (0.44704)); // 50 is the real speed limit, the factor converts to m/s
+constexpr double speed_limit_m_s = (49.5);// * (0.44704); // 50 is the real speed limit, the factor converts to m/s
 constexpr double max_jerk = 9.25;//10.0; //m/s^3
 constexpr double maximum_acceleration = 9.25;// = 10; //m/s^2
 constexpr double lateral_goal_shift = 0.2;
 constexpr double longitudinal_velocity_goal_shift = 2.0;
+constexpr double longitudinal_position_goal_shift = 1.0;
+constexpr double frenet_absolute_speed_hack_factor = 0.975;
+constexpr double tau_time_gap = 2.0;
+constexpr double min_dist_constant = 3.5;
+constexpr double low_speed_limit = 5.0;
+
+//>>>>>BEHAVIOR PLANNING<<<<<
+constexpr double end_of_sight_dist = 70.0;
 
 //>>>>>COSTS<<<<<
 constexpr double jerk_cost_weight = 1.0;

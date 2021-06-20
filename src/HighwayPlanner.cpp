@@ -53,7 +53,7 @@ void HighwayPlanner::Step()
     //run the behavior state machine and generate requested maneuver
     behavior_planner_.Step();
     //transmit requested maneuver to trajectory planning
-    trajectory_planner_.SetManeuverRequest(behavior_planner_.GetCurrentManeuver(), behavior_planner_.GetCurrentGoal());
+    trajectory_planner_.SetManeuverRequest(behavior_planner_.GetCurrentTrajectoryType(), behavior_planner_.GetCurrentGoal());
     //run trajectory planning to generate a trajectory for the current requested maneuver
     trajectory_planner_.Step();
     
@@ -92,7 +92,7 @@ void HighwayPlanner::SetVehiclePose(double x, double y, double s, double d, doub
     vehicle_pose_ptr_->position_d = d;
     //heading and speed
     vehicle_pose_ptr_->heading = heading;
-    vehicle_pose_ptr_->speed = speed;
+    vehicle_pose_ptr_->speed = speed * (0.44704);
     
     int steps_travelled = CONFIGURATION::num_trajectory_points - num_previous_path_left;
     double time_travelled = (num_previous_path_left==0) ? 0.0 : steps_travelled * CONFIGURATION::cycle_time_simulator;
@@ -187,7 +187,7 @@ void HighwayPlanner::InsertObjects(std::vector<std::vector<double>> sensor_fusio
 //            obj.predicted_longitudinal_position = 0.0;
             obj.velocity.x = vx;
             obj.velocity.y = vy;
-            //object_list_ptr_->objects.at(i) = std::move(Object{id,pos_x,pos_y,vx,vy,s,d,lane_assignment,heading,bounding_circle});
+            object_list_ptr_->objects.at(i) = std::move(obj);
         
             
         }

@@ -14,8 +14,8 @@
             filePath = "src/TrajectoryPlanner.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "TrajectoryPlanner::GenerateVelocityKeepingInLaneTrajectory(goal_s_dot, goal_d, planning_time, offset)"
             landmarkType = "7">
          </BreakpointContent>
@@ -55,22 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AA3F547A-29F9-4606-803D-B010EFDC5AEA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "src/TrajectoryPlanner.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "TrajectoryPlanner::Step()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8AF37F16-51F7-4F26-93B1-F7DDAF8FED60"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -104,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FA49BE44-EB34-45DB-AB7D-115FB11F21B1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/HighwayPlanner.cpp"
@@ -136,14 +120,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D51081D2-A4B6-4ED2-AB20-30B9857BC690"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/TrajectoryPlanner.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "TrajectoryPlanner::GenerateVelocityKeepingInLaneTrajectory(goal_s_dot, goal_d, planning_time, offset)"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,7 +136,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "20CAC0EA-2B0E-46CC-81A4-9BC0E72E606F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/BehaviorPlanner.cpp"
@@ -167,24 +151,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "74F57578-4A30-4FC4-B16F-A1564A2D6D37"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "src/BehaviorPlanner.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "BehaviorPlanner::GenerateLaneKeepingGoalPosition()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8AA5C6EE-094C-4DE4-956A-8C7D35F7BFFF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/HighwayPlanner.cpp"
@@ -193,6 +161,164 @@
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "HighwayPlanner::Step()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49676A75-AEDF-4250-B843-D3434727EBF4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/TrajectoryPlanner.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "TrajectoryPlanner::Step()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDAC88FD-790D-43B6-9567-37F4C7C0157D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/TrajectoryPlanner.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "TrajectoryPlanner::Step()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E29665A-7F74-46FD-B72A-C45DAE0FFDFB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/BehaviorPlanner.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "BehaviorPlanner::GenerateLaneKeepingGoalPosition()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "495F5A73-628B-4CF7-837E-1959070BF5EB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/TrajectoryPlanner.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
+            landmarkName = "TrajectoryPlanner::GenerateVehicleFollowingTrajectory(goal_s, goal_s_dot, goal_s_dot_dot, goal_d, planning_time, offset)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "394E1689-5B3E-4296-AFDE-58C72C16BBB4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/TrajectoryPlanner.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
+            landmarkName = "TrajectoryPlanner::GenerateVehicleFollowingTrajectory(goal_s, goal_s_dot, goal_s_dot_dot, goal_d, planning_time, offset)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "394E1689-5B3E-4296-AFDE-58C72C16BBB4 - 272b3c4dd43c6342"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrajectoryPlanner::GenerateVehicleFollowingTrajectory(double, double, double, double, double, double)"
+                  moduleName = "path_planning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakobklein/Desktop/Desktop/Udacity%20-%20Nanodegree%20Sefl%20driving%20cars%20engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "317"
+                  endingLineNumber = "317"
+                  offsetFromSymbolStart = "706">
+               </Location>
+               <Location
+                  uuid = "394E1689-5B3E-4296-AFDE-58C72C16BBB4 - 272b3c4dd43c6342"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrajectoryPlanner::GenerateVehicleFollowingTrajectory(double, double, double, double, double, double)"
+                  moduleName = "path_planning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakobklein/Desktop/Desktop/Udacity%20-%20Nanodegree%20Sefl%20driving%20cars%20engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "317"
+                  endingLineNumber = "317"
+                  offsetFromSymbolStart = "1362">
+               </Location>
+               <Location
+                  uuid = "394E1689-5B3E-4296-AFDE-58C72C16BBB4 - 272b3c4dd43c6342"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrajectoryPlanner::GenerateVehicleFollowingTrajectory(double, double, double, double, double, double)"
+                  moduleName = "path_planning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakobklein/Desktop/Desktop/Udacity%20-%20Nanodegree%20Sefl%20driving%20cars%20engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "317"
+                  endingLineNumber = "317"
+                  offsetFromSymbolStart = "2336">
+               </Location>
+               <Location
+                  uuid = "394E1689-5B3E-4296-AFDE-58C72C16BBB4 - 272b3c4dd43c6342"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrajectoryPlanner::GenerateVehicleFollowingTrajectory(double, double, double, double, double, double)"
+                  moduleName = "path_planning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakobklein/Desktop/Desktop/Udacity%20-%20Nanodegree%20Sefl%20driving%20cars%20engineer/Term_2/Planning/PathPlanningProject/src/TrajectoryPlanner.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "317"
+                  endingLineNumber = "317"
+                  offsetFromSymbolStart = "3522">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08D8F2B6-43D7-4C6B-ACF6-0DB2593140E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/TrajectoryPlanner.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "TrajectoryPlanner::GenerateVehicleFollowingTrajectory(goal_s, goal_s_dot, goal_s_dot_dot, goal_d, planning_time, offset)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
